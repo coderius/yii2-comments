@@ -28,6 +28,9 @@ class CommentsAsset extends AssetBundle
      */
     public $css = [
         'css/comments.css',
+        'css/form.css',
+        'css/buttons.css',
+        'css/icons.css',
     ];
 
     /**
@@ -36,5 +39,12 @@ class CommentsAsset extends AssetBundle
     public $depends = [
         'yii\web\JqueryAsset',
         'yii\web\YiiAsset',
+    ];
+
+    /**
+     * @var array
+     */
+    public $publishOptions = [
+        'forceCopy' => true
     ];
 }

@@ -32,9 +32,10 @@ class Bootstrap implements BootstrapInterface
         //     [Instance::of('yii\db\Query')]
         // );
 
-        // $container->setSingleton('coderius\comments\repositories\Interfaces\CommentsFinderRepositoryInterface',
-        //     'queryCommentsFinderRepository'
-        // );
+        $container->set(
+            'coderius\comments\components\repo\CommentRepoInterface',
+            'coderius\comments\components\repo\CommentRepoQuery'
+        );
 
         // $container->setSingleton('coderius\comments\services\CommentsService',
         //     [],

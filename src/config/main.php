@@ -3,7 +3,6 @@
 // var_dump(Yii::getAlias('@coderius/comments/translations'));die;
 return [
     'controllerNamespace' => 'coderius\comments\controllers',
-
     'components' => [
         'request' => [
             'class' => 'yii\web\Request',
@@ -25,18 +24,19 @@ return [
         'i18n' => [
             'class' => 'yii\i18n\I18N',
             'translations' => [
-                'comments*' => [
+                'coderius.comments*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' =>  '@coderius/comments/translations',
                     //'sourceLanguage' => 'en-US',
                     'forceTranslation' => true,
                     'fileMap' => [
-                        'comments/messages' => 'messages.php',
+                        'coderius.comments.messages' => 'messages.php',
                     ],
                 ],
             ],
         ],
     ],
+    
     'params' => [
         // список параметров
     ],
