@@ -15,4 +15,11 @@ return [
     'Create comment' => 'Добавить комментарий',
     'Add Reply' => 'Добавить комментарий',
     'Reply' => 'Ответить',
+    'Your Name' => 'Ваше имя',
+    'Your Comment' => 'Ваш комментарий',
+    'Write your First Name' => 'Напишите Ваше имя',
+    'Write your comment ...' => 'Напишите Ваш комментарий ...',
+    'Commentor First Name' => 'Имя комментатора',
+    'Comment Text' => 'Текст комментария',
+    'Oops, something went wrong. Please try again later.' => 'Ой, что-то пошло не так. Пожалуйста, повторите попытку еще раз.'
 ];

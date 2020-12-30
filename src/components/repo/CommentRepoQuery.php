@@ -7,12 +7,12 @@ use coderius\comments\components\entities\CommentEntity;
 
 class CommentRepoQuery implements CommentRepoInterface{
 
-    const STATUS_ACTIVE = 1;
-    const STATUS_DESIBLED = 2;
+    // const STATUS_ACTIVE = 1;
+    // const STATUS_DESIBLED = 2;
 
     private $tableName = 'comments';
 
-    public function getCommentsByMaterialId($materialId, $filter = []){
+    public function getCommentsByMaterialId($materialId, $filter = [], $order = ['createdAt' => SORT_ASC]){
         // var_dump($filter);die;
         $rows = (new \yii\db\Query())
         ->select(['*'])
@@ -24,6 +24,8 @@ class CommentRepoQuery implements CommentRepoInterface{
                 $rows = $rows->andFilterWhere($cond);
             }
         }
+
+        $rows = $rows->orderBy($order);
         
         $rows = $rows->all();
 
@@ -31,10 +33,20 @@ class CommentRepoQuery implements CommentRepoInterface{
 
         $entities = [];
         foreach($rows as $row){
-            $entities[] = new CommentEntity($row);
+            
+            $entities[] = CommentEntity::createFromArray($row);
         }
 
         return $entities;
+    }
+
+    public function findByCommentId($id){
+        $row = (new \yii\db\Query())
+            ->from($this->tableName)
+            ->where(['id' => $id])
+            ->one();
+
+        return $row ? CommentEntity::createFromArray($row) : false;
     }
 
 }

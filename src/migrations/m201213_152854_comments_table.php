@@ -18,7 +18,7 @@ class m201213_152854_comments_table extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
         $this->createTable('{{%comments}}', [
-            'id' => $this->primaryKey()->unsigned(),
+            'id' => $this->primaryKey()->char(36)->notNull(),
             'materialId' => $this->char(255)->notNull(),
             'content' => $this->text()->notNull(),
             'parentId' => $this->integer()->unsigned()->null(),

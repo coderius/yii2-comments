@@ -3,6 +3,7 @@
 namespace coderius\comments\components\dto;
 
 use coderius\comments\components\entities\CommentEntity;
+use Yii;
 
 class CommentDtoCreator{
 
@@ -27,8 +28,8 @@ class CommentDtoCreator{
         $dto->introducedAvatar = $entity->getIntroducedAvatar();
         $dto->createdBy = $entity->getCreatedBy();
         $dto->updatedBy = $entity->getUpdatedBy();
-        $dto->createdAt = $entity->getCreatedAt();
-        $dto->updatedAt = $entity->getUpdatedAt();
+        $dto->createdAt = Yii::$app->formatter->asRelativeTime($entity->getCreatedAt());
+        $dto->updatedAt = Yii::$app->formatter->asRelativeTime($entity->getUpdatedAt());
 
         return $dto;
     }

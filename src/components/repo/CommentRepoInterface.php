@@ -6,4 +6,6 @@ interface CommentRepoInterface{
 
     public function getCommentsByMaterialId($materialId, $filter = []);
 
+    public function findByCommentId($id);
+
 }

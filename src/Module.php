@@ -52,9 +52,11 @@ class Module extends \yii\base\Module
      */
     public function addUrlManagerRules($app)
     {
-        
+        $app->urlManager->addRules([new GroupUrlRule([
+            'prefix' => $this->id,
+            'rules' => require __DIR__ . '/config/_routes.php',
+        ])], true);
 
-        
     }
 
     /**

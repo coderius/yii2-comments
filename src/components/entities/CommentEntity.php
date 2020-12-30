@@ -2,6 +2,8 @@
 
 namespace coderius\comments\components\entities;
 
+use coderius\comments\components\entities\values\CommentId;
+
 class CommentEntity{
     private $id;
     private $materialId;
@@ -21,9 +23,22 @@ class CommentEntity{
     public function __construct($items = []){
         foreach($items as $key => $value){
             if (property_exists($this, $key)) {
-                $this->{$key} = $value;
+                $setter = 'set' . ucfirst($key);
+                if (method_exists($this, $setter)) {
+                    $this->$setter($value);
+                    
+                }else{
+                    $this->{$key} = $value;
+                }
+                
             }
         }
+    }
+
+    public static function createFromArray($array){
+        $id = $array['id'];
+        $array['id'] = CommentId::fromString($id);
+        return new self($array);
     }
 
     /**
@@ -128,5 +143,17 @@ class CommentEntity{
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId(CommentId $id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 }

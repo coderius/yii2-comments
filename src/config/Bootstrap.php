@@ -7,6 +7,7 @@ use yii\base\BootstrapInterface;
 use yii\console\Application as ConsoleApplication;
 use yii\web\Application as WebApplication;
 use yii\di\Instance;
+use Yii;
 
 class Bootstrap implements BootstrapInterface
 {
@@ -20,8 +21,15 @@ class Bootstrap implements BootstrapInterface
         } elseif ($app instanceof ConsoleApplication) {
             $module->controllerNamespace = 'coderius\comments\commands';
         }
-
+        $this->addAliases();
         $this->addDependencies();
+    }
+
+    private function addAliases(){
+        
+        Yii::setAlias('@images', dirname(__DIR__), '/assets/images');
+        Yii::setAlias('@avatarsWeb', dirname(dirname(__DIR__)).'/src/assets/avatars/');
+        Yii::setAlias('@avatarsPath', dirname(__DIR__), '/assets/images');
     }
 
     private function addDependencies(){
@@ -35,6 +43,11 @@ class Bootstrap implements BootstrapInterface
         $container->set(
             'coderius\comments\components\repo\CommentRepoInterface',
             'coderius\comments\components\repo\CommentRepoQuery'
+        );
+
+        $container->set(
+            'coderius\comments\components\repo\CreateCommentRepoInterface',
+            'coderius\comments\components\repo\CreateCommentRepoDAO'
         );
 
         // $container->setSingleton('coderius\comments\services\CommentsService',

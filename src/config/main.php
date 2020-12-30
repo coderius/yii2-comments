@@ -38,6 +38,6 @@ return [
     ],
     
     'params' => [
-        // список параметров
+        'avatar.default' => 'default-commentor-avatar.jpg'
     ],
 ];

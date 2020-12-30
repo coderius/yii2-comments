@@ -7,7 +7,7 @@ use coderius\comments\components\repo\CommentRepoInterface;
 use coderius\comments\components\repo\CommentRepoQuery;
 use coderius\comments\components\dto\CommentDto;
 use coderius\comments\components\dto\CommentDtoCreator;
-
+use coderius\comments\components\enum\CommentEnum;
 
 class CommentService extends BaseObject{
 
@@ -22,12 +22,12 @@ class CommentService extends BaseObject{
 
     public function getCommentsTree($materialId, $maxLevel = null){
         $filter = [];
-        $filter[] = ['status' => CommentRepoQuery::STATUS_ACTIVE];
-        // var_dump($maxLevel);
+        $filter[] = ['status' => CommentEnum::STATUS_ACTIVE];
+        
         if($maxLevel > 0){
             $filter[] = ['<=', 'level', new \yii\db\Expression($maxLevel)];
         }
-        // var_dump($filter);
+        
         $entities = $this->commentRepo->getCommentsByMaterialId($materialId, $filter);
         
         if (empty($entities)) {

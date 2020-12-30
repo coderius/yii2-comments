@@ -2,14 +2,14 @@
     Comments
 ---------------*/
 
-.ui.comments {
+.coderius.comments {
   margin: 1.5em 0em;
   max-width: 650px;
 }
-.ui.comments:first-child {
+.coderius.comments:first-child {
   margin-top: 0em;
 }
-.ui.comments:last-child {
+.coderius.comments:last-child {
   margin-bottom: 0em;
 }
 
@@ -17,7 +17,7 @@
      Comment
 ---------------*/
 
-.ui.comments .comment {
+.coderius.comments .comment {
   position: relative;
   background: none;
   margin: 0.5em 0em 0em;
@@ -26,7 +26,7 @@
   border-top: none;
   line-height: 1.2;
 }
-.ui.comments .comment:first-child {
+.coderius.comments .comment:first-child {
   margin-top: 0em;
   padding-top: 0em;
 }
@@ -35,16 +35,16 @@
     Nested Comments
 ---------------------*/
 
-.ui.comments .comment .comments {
+.coderius.comments .comment .comments {
   margin: 0em 0em 0.5em 0.5em;
   padding: 1em 0em 0.01em 1em;
 }
-.ui.comments .comment .comments:before {
+.coderius.comments .comment .comments:before {
   position: absolute;
   top: 0px;
   left: 0px;
 }
-.ui.comments .comment .comments .comment {
+.coderius.comments .comment .comments .comment {
   border: none;
   border-top: none;
   background: none;
@@ -54,15 +54,15 @@
      Avatar
 ---------------*/
 
-.ui.comments .comment .avatar {
+.coderius.comments .comment .avatar {
   display: block;
   width: 2.5em;
   height: auto;
   float: left;
   margin: 0.2em 0em 0em;
 }
-.ui.comments .comment img.avatar,
-.ui.comments .comment .avatar img {
+.coderius.comments .comment img.avatar,
+.coderius.comments .comment .avatar img {
   display: block;
   margin: 0em auto;
   width: 100%;
@@ -74,12 +74,12 @@
      Content
 ---------------*/
 
-.ui.comments .comment > .content {
+.coderius.comments .comment > .content {
   display: block;
 }
 
 /* If there is an avatar move content over */
-.ui.comments .comment > .avatar ~ .content {
+.coderius.comments .comment > .avatar ~ .content {
   margin-left: 3.5em;
 }
 
@@ -87,15 +87,15 @@
      Author
 ---------------*/
 
-.ui.comments .comment .author {
+.coderius.comments .comment .author {
   font-size: 1em;
   color: rgba(0, 0, 0, 0.87);
   font-weight: bold;
 }
-.ui.comments .comment a.author {
+.coderius.comments .comment a.author {
   cursor: pointer;
 }
-.ui.comments .comment a.author:hover {
+.coderius.comments .comment a.author:hover {
   color: #1e70bf;
 }
 
@@ -103,17 +103,17 @@
      Metadata
 ---------------*/
 
-.ui.comments .comment .metadata {
+.coderius.comments .comment .metadata {
   display: inline-block;
   margin-left: 0.5em;
   color: rgba(0, 0, 0, 0.4);
   font-size: 0.875em;
 }
-.ui.comments .comment .metadata > * {
+.coderius.comments .comment .metadata > * {
   display: inline-block;
   margin: 0em 0.5em 0em 0em;
 }
-.ui.comments .comment .metadata > :last-child {
+.coderius.comments .comment .metadata > :last-child {
   margin-right: 0em;
 }
 
@@ -121,7 +121,7 @@
      Comment Text
 ---------------------*/
 
-.ui.comments .comment .text {
+.coderius.comments .comment .text {
   margin: 0.25em 0em 0.5em;
   font-size: 1em;
   word-wrap: break-word;
@@ -133,20 +133,20 @@
      User Actions
 ---------------------*/
 
-.ui.comments .comment .actions {
+.coderius.comments .comment .actions {
   font-size: 0.875em;
 }
-.ui.comments .comment .actions a {
+.coderius.comments .comment .actions a {
   cursor: pointer;
   display: inline-block;
   margin: 0em 0.75em 0em 0em;
   color: rgba(0, 0, 0, 0.4);
 }
-.ui.comments .comment .actions a:last-child {
+.coderius.comments .comment .actions a:last-child {
   margin-right: 0em;
 }
-.ui.comments .comment .actions a.active,
-.ui.comments .comment .actions a:hover {
+.coderius.comments .comment .actions a.active,
+.coderius.comments .comment .actions a:hover {
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -154,14 +154,14 @@
       Reply Form
 ---------------------*/
 
-.ui.comments > .reply.form {
+.coderius.comments > .reply.form {
   margin-top: 1em;
 }
-.ui.comments .comment .reply.form {
+.coderius.comments .comment .reply.form {
   width: 100%;
   margin-top: 1em;
 }
-.ui.comments .reply.form textarea {
+.coderius.comments .reply.form textarea {
   font-size: 1em;
   height: 12em;
 }
@@ -171,9 +171,9 @@
             State
 *******************************/
 
-.ui.collapsed.comments,
-.ui.comments .collapsed.comments,
-.ui.comments .collapsed.comment {
+.coderius.collapsed.comments,
+.coderius.comments .collapsed.comments,
+.coderius.comments .collapsed.comment {
   display: none;
 }
 
@@ -187,7 +187,7 @@
         Threaded
 ---------------------*/
 
-.ui.threaded.comments .comment .comments {
+.coderius.threaded.comments .comment .comments {
   margin: -1.5em 0 -1em 1.25em;
   padding: 3em 0em 2em 2.25em;
   -webkit-box-shadow: -1px 0px 0px rgba(34, 36, 38, 0.15);
@@ -198,7 +198,7 @@
         Minimal
 ---------------------*/
 
-.ui.minimal.comments .comment .actions {
+.coderius.minimal.comments .comment .actions {
   opacity: 0;
   position: absolute;
   top: 0px;
@@ -209,7 +209,7 @@
   -webkit-transition-delay: 0.1s;
           transition-delay: 0.1s;
 }
-.ui.minimal.comments .comment > .content:hover > .actions {
+.coderius.minimal.comments .comment > .content:hover > .actions {
   opacity: 1;
 }
 
@@ -217,28 +217,28 @@
         Sizes
 --------------------*/
 
-.ui.mini.comments {
+.coderius.mini.comments {
   font-size: 0.78571429rem;
 }
-.ui.tiny.comments {
+.coderius.tiny.comments {
   font-size: 0.85714286rem;
 }
-.ui.small.comments {
+.coderius.small.comments {
   font-size: 0.92857143rem;
 }
-.ui.comments {
+.coderius.comments {
   font-size: 1rem;
 }
-.ui.large.comments {
+.coderius.large.comments {
   font-size: 1.14285714rem;
 }
-.ui.big.comments {
+.coderius.big.comments {
   font-size: 1.28571429rem;
 }
-.ui.huge.comments {
+.coderius.huge.comments {
   font-size: 1.42857143rem;
 }
-.ui.massive.comments {
+.coderius.massive.comments {
   font-size: 1.71428571rem;
 }
 
