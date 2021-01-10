@@ -8,4 +8,5 @@ interface CommentRepoInterface{
 
     public function findByCommentId($id);
 
+    public function countAll($filter);
 }

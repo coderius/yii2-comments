@@ -39,7 +39,7 @@ class CommentService extends BaseObject{
         return $tree;
     }
 
-    protected static function buildTree(&$data, $rootID = 0)
+    protected static function buildTree(&$data, $rootID = null)
     {
         $tree = [];
 
@@ -54,12 +54,37 @@ class CommentService extends BaseObject{
         return $tree;
     }
 
-    // public function getCommentsBlockMeta(){
+    public function getActiveCommentsCountForMaterial($materialId){
+        $maxLevel = 0;
+        $filter[] = ['materialId' => $materialId];
+        $filter[] = ['<=', 'level', new \yii\db\Expression($maxLevel)];
+        $filter[] = ['status' => CommentEnum::STATUS_ACTIVE];
+        return $this->commentRepo->countAll($filter);
+    }
 
-    // }
-
-    // public function getCommentsFormMeta(){
-
-    // }
+    /**
+     * Count recursive array of objacts CommentDto
+     *
+     * @param [type] $tree
+     * @param integer $count
+     * @return void
+     */
+    public static function getCountTree($tree, $count = 0){
+        if(count($tree) == 0){
+            return $count;
+        }
+        
+        foreach ($tree as $id => $item) {
+            $count ++;
+            
+            if(count($item->children) > 0){
+                $count = self::getCountTree($item->children, $count);
+                
+            }
+            
+        }
+        return $count;
+    }
+ 
 
 }

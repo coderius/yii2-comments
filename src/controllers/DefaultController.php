@@ -6,12 +6,17 @@ use coderius\comments\components\services\CreateCommentService;
 use coderius\comments\models\CommentFormModel;
 use Yii;
 use yii\web\Controller;
+use coderius\comments\components\events\CommentEvent;
 
 /**
  * Class DefaultController.
  */
 class DefaultController extends Controller
 {
+    const EVENT_BEFORE_CREATE = 'beforeCreate';
+
+    const EVENT_AFTER_CREATE = 'afterCreate';
+    
     private $createCommentService;
 
     public function __construct($id,
@@ -21,6 +26,7 @@ class DefaultController extends Controller
     ) {
         parent::__construct($id, $module, $config);
         $this->createCommentService = $createCommentService;
+        
     }
 
     // public function actionCreateComment($encryptedData)
@@ -47,17 +53,24 @@ class DefaultController extends Controller
                 'scenario' => CommentFormModel::SCENARIO_CREATE,
             ]
         );
-
-//         $decrypt = Yii::$app->getSecurity()->decryptByKey(utf8_decode($encryptedData), \coderius\comments\Module::selfInstance()->id);
         
-// $decrypt = \yii\helpers\Json::decode($decrypt);
-
         if ($request->isAjax) {
             $formModel->load($request->post(), '');
             $isValid = $formModel->validate();
 
+            //Event EVENT_BEFORE_CREATE
+            $this->beforeCommentCreate(['scenario' => $formModel->getScenario()]);
+
             if ($isValid) {
                 $dto = $this->createCommentService->createComment($formModel);
+                
+                //Event EVENT_AFTER_CREATE
+                $this->afterCommentCreate([
+                    'id' => $dto->id,
+                    'materialId' => $dto->materialId,
+                    'scenario' => $formModel->getScenario(),
+                ]);
+                
                 return [
                     'status' => 'success',
                     'data' => $dto,
@@ -69,5 +82,21 @@ class DefaultController extends Controller
                 ];
             }
         }
+    }
+
+    protected function beforeCommentCreate($params){
+        $event = $this->createEvent($params);
+        Yii::$app->trigger(self::EVENT_BEFORE_CREATE, $event);
+    }
+
+    protected function afterCommentCreate($params){
+        $event = $this->createEvent($params);
+        Yii::$app->trigger(self::EVENT_AFTER_CREATE, $event);
+
+    }
+
+    protected function createEvent($params){
+        $params = array_merge(['class' => CommentEvent::class], $params);
+        return Yii::createObject($params);
     }
 }

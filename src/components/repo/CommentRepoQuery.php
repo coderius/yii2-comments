@@ -49,4 +49,17 @@ class CommentRepoQuery implements CommentRepoInterface{
         return $row ? CommentEntity::createFromArray($row) : false;
     }
 
+    public function countAll($filter){
+        $rows = (new \yii\db\Query())
+            ->from($this->tableName);
+
+        if(!empty($filter)){
+            foreach($filter as $key => $cond){
+                $rows = $rows->andFilterWhere($cond);
+            }
+        }
+
+        return $rows->count();
+    }
+
 }

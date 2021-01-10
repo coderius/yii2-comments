@@ -7,6 +7,7 @@ use Yii;
 use yii\base\InvalidConfigException;
 use yii\base\Widget;
 use yii\helpers\Json;
+use coderius\comments\components\services\CommentService;
 
 class Comments extends Widget
 {
@@ -59,11 +60,12 @@ class Comments extends Widget
     public function run()
     {
         $commentsTree = $this->commentService->getCommentsTree($this->materialId);
-        // var_dump($commentsTree);
+        $countComments = CommentService::getCountTree($commentsTree);
+        
         return $this->render($this->commentView, [
             'commentsTree' => $commentsTree,
             'encryptedData' => $this->encryptedData,
-            'commentsBlockTitle' => Yii::t('coderius.comments.messages', $this->commentsBlockTitle),
+            'commentsBlockTitle' => Yii::t('coderius.comments.messages', $this->commentsBlockTitle) . " ({$countComments})",
             'commentsFormButtonTitle' => Yii::t('coderius.comments.messages', $this->commentsFormButtonTitle),
             'commentReplyLinkTitle' => Yii::t('coderius.comments.messages', $this->commentReplyLinkTitle),
             'commentsInputNameLabel' => Yii::t('coderius.comments.messages', $this->commentsInputNameLabel),
@@ -82,7 +84,6 @@ class Comments extends Widget
         $avAs = AvatarsAsset::publicate();
         $this->defaultAvatar = null === $this->defaultAvatar ? $avAs->getDefaultAvatarUrl() : $this->defaultAvatar;
         $this->avatarBaseUrl = $avAs->getRegularAvatarUrl();
-        
         $view = $this->getView();
         CommentsAsset::register($view);
         $view->registerJs("jQuery('#{$this->wrapperId}').".self::JS_PLUGIN."({$this->getClientOptions()});");

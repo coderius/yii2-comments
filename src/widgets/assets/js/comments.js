@@ -9,7 +9,14 @@
     var defaults = {
         wrapperSelector: '.coderius.comments',
         formSelector: '.coderius.form',
-        formButtonSelector: '.coderius.button'
+        formButtonSelector: '.coderius.button',
+        replyLinkSelector: '.actions .reply',
+        commentSelectors: {
+            commentBlockClass: '.comment'
+        },
+        formSelectors: {
+            hiddenInputParentId: 'input:hidden[name=parentId]'
+        },
     };
 
     var formSelectors = {
@@ -32,11 +39,27 @@
                     $wrapper = $(this),
                     formSelector = settings.formSelector,
                     formButtonSelector = settings.formButtonSelector,
+                    replyLinkSelector = settings.replyLinkSelector,
                     $form = $(formSelector),
                     formAction = $form.attr('action'),
                     formMethod = $form.attr('method');
-                    
-                $wrapper.on('click.form.button', formButtonSelector, {$form: $form, formAction: formAction, formMethod: formMethod}, createComment);
+
+                var formHendlerDTO = {
+                    $form: $form, 
+                    formAction: formAction, 
+                    formMethod: formMethod,
+                    settings: settings
+                };
+
+                var replyDTO = {
+                    $form: $form, 
+                    formAction: formAction, 
+                    formMethod: formMethod,
+                    settings: settings
+                };
+
+                $wrapper.on('click.reply.link', replyLinkSelector, replyDTO, replyComment);
+                $wrapper.on('click.form.button', formButtonSelector, formHendlerDTO, createComment);
             });
         },
         beforeCreate: function (params) {
@@ -174,6 +197,28 @@
 
     }
 
+    function replyComment(e){
+        // console.log($(this));
+        e.preventDefault();
+
+        var $form = e.data.$form,
+            pluginSettings = e.data.settings,
+            $link = $(this),//reply link
+            $divActions = $(this).parent(),
+            commentBlock = $(this).closest(pluginSettings.commentSelectors.commentBlockClass),
+            dataCommentId = commentBlock.data("comment-id"),
+            $input = $form.find(pluginSettings.formSelectors.hiddenInputParentId);
+
+            console.log(dataCommentId);
+
+            $form.insertAfter($divActions);
+            $input.val(dataCommentId);//set parent comment id to hidden input
+
+
+
+    }
+
+    //plugin
     $.fn[pluginName] = function (method) {
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
