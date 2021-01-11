@@ -116,6 +116,13 @@
 .coderius.comments .comment .metadata > :last-child {
   margin-right: 0em;
 }
+.coderius.comments .comment .metadata  i {
+  cursor: pointer;
+  transition: transform .2s;
+}
+.coderius.comments .comment .metadata  i:hover {
+  transform: scale(1.5)
+}
 
 /*--------------------
      Comment Text

@@ -21,6 +21,10 @@ use yii\helpers\Url;
         <a class="author"><?= $comment->introducedName; ?></a>
         <div class="metadata">
             <span class="date"><?= $comment->createdAt; ?></span>
+            <div class="rating">
+              <i class="heart outline icon"></i>
+              <span>4</span>
+            </div>
         </div>
         <div class="text">
             <?= $comment->content; ?>
