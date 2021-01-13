@@ -3,6 +3,7 @@
 namespace coderius\comments\components\entities;
 
 use coderius\comments\components\entities\values\CommentId;
+// use coderius\comments\components\entities\values\AbstractId;
 
 class CommentEntity{
     private $id;
@@ -18,6 +19,8 @@ class CommentEntity{
     private $updatedBy;
     private $createdAt;
     private $updatedAt;
+    private $surrogateLikesCount;//from db
+    private $likes = [];
 
 
     public function __construct($items = []){
@@ -41,12 +44,39 @@ class CommentEntity{
         return new self($array);
     }
 
+    public function isRelatedLike(LikeEntity $like){
+        return $this->getId() == $like->getCommentId();
+    }
+
+    public function addLike(LikeEntity $like){
+        $lId = LikeEntity::getIdAsString($like->getId());
+        $this->likes[$lId] = $like;
+    }
+
+    public function countLikes(){
+        return count($this->getLikes());
+    }
+
+    // public function getActiveLikesIps(){
+    //     $arr = [];
+    //     if(count($this->getLikes()) > 0){
+    //         foreach($this->getLikes() as $like){
+
+    //         }
+    //     }
+    // }
+ 
     /**
      * Get the value of id
      */ 
     public function getId()
     {
         return $this->id;
+    }
+
+    public static function getIdAsString(CommentId $id)
+    {
+        return $id->getId();
     }
 
     /**
@@ -155,5 +185,33 @@ class CommentEntity{
         $this->id = $id;
 
         return $this;
+    }
+
+    /**
+     * Get the value of surrogateLikesCount
+     */ 
+    public function getSurrogateLikesCount()
+    {
+        return $this->surrogateLikesCount;
+    }
+
+    /**
+     * Set the value of surrogateLikesCount
+     *
+     * @return  self
+     */ 
+    public function setSurrogateLikesCount($surrogateLikesCount)
+    {
+        $this->surrogateLikesCount = $surrogateLikesCount ? $surrogateLikesCount : 0;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of likes
+     */ 
+    public function getLikes()
+    {
+        return $this->likes;
     }
 }

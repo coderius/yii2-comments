@@ -8,6 +8,7 @@ use coderius\comments\components\repo\CommentRepoQuery;
 use coderius\comments\components\dto\CommentDto;
 use coderius\comments\components\dto\CommentDtoCreator;
 use coderius\comments\components\enum\CommentEnum;
+use coderius\comments\components\entities\CommentEntity;
 
 class CommentService extends BaseObject{
 
@@ -27,15 +28,16 @@ class CommentService extends BaseObject{
         if($maxLevel > 0){
             $filter[] = ['<=', 'level', new \yii\db\Expression($maxLevel)];
         }
-        
-        $entities = $this->commentRepo->getCommentsByMaterialId($materialId, $filter);
+        // var_dump($this->commentRepo->getCommentsByMaterialIdWithtLikes($materialId, $filter));
+        $entities = $this->commentRepo->getCommentsByMaterialIdWithtLikes($materialId, $filter);
         
         if (empty($entities)) {
             return null;
         }
         $dto = CommentDtoCreator::fromEntities($entities);
+        // var_dump($dto);
         $tree = static::buildTree($dto);
-        
+        // var_dump($tree);
         return $tree;
     }
 
@@ -86,5 +88,18 @@ class CommentService extends BaseObject{
         return $count;
     }
  
+    public static function hasActiveLikeFromIp(CommentEntity $comment){
+        $curIp = UserDetectService::getUserIpString();
+        if($comment->countLikes() > 0){
+            foreach($comment->getLikes() as $like){
+                if($like->isEqualIp($curIp) && $like->isActiveLike()){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+
+    }
 
 }

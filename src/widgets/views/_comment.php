@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
+use coderius\comments\components\services\CommentService;
 // var_dump($defaultAvatar);die;
 // var_dump($defaultAvatar);die;
 
@@ -22,8 +23,8 @@ use yii\helpers\Url;
         <div class="metadata">
             <span class="date"><?= $comment->createdAt; ?></span>
             <div class="rating">
-              <i class="heart outline icon"></i>
-              <span>4</span>
+              <i class="heart icon<?= $comment->hasActiveLikeByIp ? '' : ' outline' ?>"></i>
+              <span class="like-count"><?= $comment->likesCount; ?></span>
             </div>
         </div>
         <div class="text">

@@ -12,7 +12,10 @@
         formButtonSelector: '.coderius.button',
         replyLinkSelector: '.actions .reply',
         commentSelectors: {
-            commentBlockClass: '.comment'
+            commentBlockClass: '.comment',
+            likeIconSelector: '.rating > i',
+            likeCountSelector: '.rating > .like-count',
+            emptyLikeClass: 'outline' //style to not clicked like by current user
         },
         formSelectors: {
             hiddenInputParentId: 'input:hidden[name=parentId]'
@@ -40,6 +43,7 @@
                     formSelector = settings.formSelector,
                     formButtonSelector = settings.formButtonSelector,
                     replyLinkSelector = settings.replyLinkSelector,
+                    likeIconSelector = settings.commentSelectors.likeIconSelector,
                     $form = $(formSelector),
                     formAction = $form.attr('action'),
                     formMethod = $form.attr('method');
@@ -58,6 +62,11 @@
                     settings: settings
                 };
 
+                var likeDTO = {
+                    settings: settings
+                };
+
+                $wrapper.on('click.like.icon', likeIconSelector, likeDTO, likeComment);
                 $wrapper.on('click.reply.link', replyLinkSelector, replyDTO, replyComment);
                 $wrapper.on('click.form.button', formButtonSelector, formHendlerDTO, createComment);
             });
@@ -213,9 +222,23 @@
 
             $form.insertAfter($divActions);
             $input.val(dataCommentId);//set parent comment id to hidden input
+    }
 
+    function likeComment(e){
+        e.preventDefault();
+        var pluginSettings = e.data.settings;
+        $.ajax({
+            url: "comments/comments/default/like",
+            data: '',
+            type: 'POST',
+            // processData: false,
+            // contentType: false,
+            dataType: "json",
+        }).then(function () {
+            console.log($(this));
+        });
 
-
+        // console.log($(this));
     }
 
     //plugin

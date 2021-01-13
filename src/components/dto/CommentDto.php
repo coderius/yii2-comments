@@ -16,5 +16,10 @@ class CommentDto{
     public $updatedBy;
     public $createdAt;
     public $updatedAt;
+    public $surrogateLikesCount;//from db
+    public $likesCount;//from entity
+    public $hasActiveLikeByIp;//bool
+    public $likes = [];
     public $children = [];
+    
 }

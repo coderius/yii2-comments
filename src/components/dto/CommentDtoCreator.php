@@ -3,6 +3,7 @@
 namespace coderius\comments\components\dto;
 
 use coderius\comments\components\entities\CommentEntity;
+use coderius\comments\components\services\CommentService;
 use Yii;
 
 class CommentDtoCreator{
@@ -30,6 +31,10 @@ class CommentDtoCreator{
         $dto->updatedBy = $entity->getUpdatedBy();
         $dto->createdAt = Yii::$app->formatter->asRelativeTime($entity->getCreatedAt());
         $dto->updatedAt = Yii::$app->formatter->asRelativeTime($entity->getUpdatedAt());
+        $dto->surrogateLikesCount = $entity->getSurrogateLikesCount();
+        $dto->likes = $entity->getLikes();
+        $dto->likesCount = $entity->countLikes();
+        $dto->hasActiveLikeByIp = CommentService::hasActiveLikeFromIp($entity);//active like for current ip user
 
         return $dto;
     }

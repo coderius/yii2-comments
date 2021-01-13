@@ -99,4 +99,16 @@ class DefaultController extends Controller
         $params = array_merge(['class' => CommentEvent::class], $params);
         return Yii::createObject($params);
     }
+
+    public function actionLike()
+    {
+        $request = Yii::$app->request;
+        $response = Yii::$app->getResponse();
+        $response->format = \yii\web\Response::FORMAT_JSON;
+
+        return [
+            'status' => 'active',
+            'data' => 0,
+        ];
+    }
 }
