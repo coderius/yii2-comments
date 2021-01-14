@@ -12,9 +12,9 @@ use coderius\comments\components\services\CommentService;
     <a class="avatar">
         <!-- <img src="https://semantic-ui.com/images/avatar/small/matt.jpg"> -->
         <?php if(null == $comment->introducedAvatar): ?>
-        <?= Html::img($defaultAvatar, ['alt' => $comment->introducedName]); ?>
+        <?= Html::img($defaultAvatar, ['alt' => $comment->introducedName, 'title' => $comment->introducedName]); ?>
         <?php else: ?>
-        <?= Html::img($avatarBaseUrl . $comment->introducedAvatar, ['alt' => $comment->introducedName]); ?>
+        <?= Html::img($avatarBaseUrl . $comment->introducedAvatar, ['alt' => $comment->introducedName, 'title' => $comment->introducedName]); ?>
         <?php endif; ?>
 
     </a>
