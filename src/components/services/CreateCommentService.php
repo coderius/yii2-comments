@@ -2,6 +2,8 @@
 
 namespace coderius\comments\components\services;
 
+use coderius\comments\components\dto\CreateLikeDto;
+use coderius\comments\components\entities\LikeEntity;
 use coderius\comments\components\dto\CommentDtoCreator;
 use coderius\comments\components\entities\CommentEntity;
 use coderius\comments\components\entities\values\CommentId;
@@ -57,5 +59,38 @@ class CreateCommentService extends BaseObject
         }
         
         return false;
+    }
+
+    public function createLike($commentId)
+    {
+        $com = $this->commentReadRepo->findByCommentId($commentId);
+        $curIp = UserDetectService::getUserIpString();
+        if($com->hasLikeFromIp($curIp)){
+            //get like, update score, save, return dto CreateLikeDto
+            $like = $com->getLikeFromIp($curIp);
+            $like->toggleScore();
+
+            $this->createCommentRepo->updateLike($com, $like);
+            $dto = new CreateLikeDto();
+            $dto->commentId = $com->getIdString();
+            $dto->likeStatus = $like->getScore();
+            $dto->likesCount = $com->countActiveLikes();
+            return $dto;
+            
+        }else{
+            //create like entity, save in comment, return dto CreateLikeDto
+            $like = LikeEntity::createNewLike([
+                'commentId' => $com->getId(),
+                'ipStr' => $curIp,
+            ]);
+            $com->addLike($like);
+            $this->createCommentRepo->createLike($com, $like);
+            
+            $dto = new CreateLikeDto();
+            $dto->commentId = $com->getIdString();
+            $dto->likeStatus = $like->getScore();
+            $dto->likesCount = $com->countActiveLikes();
+            return $dto;
+        }
     }
 }

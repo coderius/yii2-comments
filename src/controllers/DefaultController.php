@@ -105,10 +105,17 @@ class DefaultController extends Controller
         $request = Yii::$app->request;
         $response = Yii::$app->getResponse();
         $response->format = \yii\web\Response::FORMAT_JSON;
+        if ($request->isAjax) {
+            $commentId = $request->post('commentId');
 
-        return [
-            'status' => 'active',
-            'data' => 0,
-        ];
+            $createLikeDto = $this->createCommentService->createLike($commentId);
+
+            return [
+                'status' => 'ok',
+                'data' => $createLikeDto,
+            ];
+        }
+
+        return false;
     }
 }

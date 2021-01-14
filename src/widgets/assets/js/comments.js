@@ -13,8 +13,9 @@
         replyLinkSelector: '.actions .reply',
         commentSelectors: {
             commentBlockClass: '.comment',
-            likeIconSelector: '.rating > i',
-            likeCountSelector: '.rating > .like-count',
+            ratingBoxSelector: '.rating',
+            likeIconSelector: '.like-icon',
+            likeCountSelector: '.like-count',
             emptyLikeClass: 'outline' //style to not clicked like by current user
         },
         formSelectors: {
@@ -226,16 +227,39 @@
 
     function likeComment(e){
         e.preventDefault();
-        var pluginSettings = e.data.settings;
+        var pluginSettings = e.data.settings,
+            $commentBlock = $(this).closest(pluginSettings.commentSelectors.commentBlockClass),
+            $iconBox = $(this),
+            $ratingBox = $iconBox.closest(pluginSettings.commentSelectors.ratingBoxSelector),
+            $countBox = $(this).siblings(pluginSettings.commentSelectors.likeCountSelector),
+            
+            dataCommentId = $commentBlock.data("comment-id");
+
+        toggleSpinner($iconBox);
+
         $.ajax({
             url: "comments/comments/default/like",
-            data: '',
+            data: {'commentId':dataCommentId},
             type: 'POST',
             // processData: false,
             // contentType: false,
             dataType: "json",
-        }).then(function () {
-            console.log($(this));
+        }).then(function (res) {
+            if(res.status == 'ok'){
+                var count = res.data.likesCount;
+                var likeStatus = res.data.likeStatus;
+                $countBox.text(count);
+                if(likeStatus == 0){
+                    $iconBox.addClass(pluginSettings.commentSelectors.emptyLikeClass);
+                }else if(likeStatus == 1){
+                    $iconBox.removeClass(pluginSettings.commentSelectors.emptyLikeClass);
+                }
+
+                toggleSpinner($iconBox );
+            }else{
+
+            }
+            console.log(res);
         });
 
         // console.log($(this));

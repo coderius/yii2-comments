@@ -33,7 +33,7 @@ class CommentDtoCreator{
         $dto->updatedAt = Yii::$app->formatter->asRelativeTime($entity->getUpdatedAt());
         $dto->surrogateLikesCount = $entity->getSurrogateLikesCount();
         $dto->likes = $entity->getLikes();
-        $dto->likesCount = $entity->countLikes();
+        $dto->likesCount = $entity->countActiveLikes();
         $dto->hasActiveLikeByIp = CommentService::hasActiveLikeFromIp($entity);//active like for current ip user
 
         return $dto;

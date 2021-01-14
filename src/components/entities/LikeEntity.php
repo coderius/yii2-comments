@@ -40,12 +40,29 @@ class LikeEntity{
         return new self($array);
     }
 
+    public static function createNewLike($array){
+        $data = [
+            'id' => LikeId::next(),
+            'commentId' => $array['commentId'],
+            'score' => static::ACTIVE,
+            'ipStr' => $array['ipStr'],
+            'createdAt' => time()
+        ];
+
+        return new self($data);
+    }
+
     public static function getIdAsString(LikeId $id)
     {
         return $id->getId();
     }
 
-    public function isEqualIp($ip)
+    public function getIdString()
+    {
+        return $this->getId()->getId();
+    }
+
+    public function isEqualIp(string $ip)
     {
         return $this->getIpStr() == $ip;
     }
@@ -53,6 +70,18 @@ class LikeEntity{
     public function isActiveLike()
     {
         return $this->getScore() == static::ACTIVE;
+    }
+    
+    public function toggleScore()
+    {
+        switch ($this->getScore()) {
+            case LikeEntity::DESIBLED:
+                $this->setScore(LikeEntity::ACTIVE);
+                break;
+            case LikeEntity::ACTIVE:
+                $this->setScore(LikeEntity::DESIBLED);
+                break;
+        }
     }
     
     /**
@@ -118,4 +147,17 @@ class LikeEntity{
     {
         return $this->updatedAt;
     }
+
+    /**
+     * Set the value of score
+     *
+     * @return  self
+     */ 
+    public function setScore(int $score)
+    {
+        $this->score = $score;
+
+        return $this;
+    }
+
 }

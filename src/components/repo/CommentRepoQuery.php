@@ -98,17 +98,9 @@ class CommentRepoQuery implements CommentRepoInterface{
         // var_dump($rows->prepare(\Yii::$app->db->queryBuilder)->createCommand()->rawSql);die;
 
         $commentsIds = array_keys($rows);
-        $likes = (new \yii\db\Query())
-            ->from($this->likesTableName)
-            ->where(['commentId' => $commentsIds])
-            ->all();
+        $likesEntities = $this->findLikesByCommentId($commentsIds);
 
         $commentsEntities = [];
-        $likesEntities = [];
-
-        foreach($likes as $like){
-            $likesEntities[] = LikeEntity::createFromArray($like);
-        }
 
         foreach($rows as $id => $row){
             $com = CommentEntity::createFromArray($row);
@@ -131,7 +123,36 @@ class CommentRepoQuery implements CommentRepoInterface{
             ->where(['id' => $id])
             ->one();
 
-        return $row ? CommentEntity::createFromArray($row) : false;
+        $likesEntities = $this->findLikesByCommentId($id);
+
+        if($row){
+            $com = CommentEntity::createFromArray($row);
+            foreach($likesEntities as $like){
+                
+                if($com->isRelatedLike($like)){
+                    $com->addLike($like);
+                }
+            }
+
+            return $com;
+        }
+        
+        return false;
+    }
+
+    public function findLikesByCommentId($commentsIds){
+        $likes = (new \yii\db\Query())
+            ->from($this->likesTableName)
+            ->where(['commentId' => $commentsIds])
+            ->all();
+
+        $likesEntities = [];
+
+        foreach($likes as $like){
+            $likesEntities[] = LikeEntity::createFromArray($like);
+        }
+
+        return $likesEntities;
     }
 
     public function countAll($filter){

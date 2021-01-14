@@ -23,7 +23,7 @@ use coderius\comments\components\services\CommentService;
         <div class="metadata">
             <span class="date"><?= $comment->createdAt; ?></span>
             <div class="rating">
-              <i class="heart icon<?= $comment->hasActiveLikeByIp ? '' : ' outline' ?>"></i>
+              <i class="heart icon like-icon<?= $comment->hasActiveLikeByIp ? '' : ' outline' ?>"></i>
               <span class="like-count"><?= $comment->likesCount; ?></span>
             </div>
         </div>

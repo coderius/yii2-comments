@@ -3,6 +3,7 @@
 namespace coderius\comments\components\entities;
 
 use coderius\comments\components\entities\values\CommentId;
+use coderius\comments\components\entities\values\LikeId;
 // use coderius\comments\components\entities\values\AbstractId;
 
 class CommentEntity{
@@ -53,8 +54,53 @@ class CommentEntity{
         $this->likes[$lId] = $like;
     }
 
+    public function getLike(LikeId $id){
+        return isset($this->likes[$id->getId()]) ? $this->likes[$id->getId()] : false;
+        
+    }
+
+    public function hasLikeFromIp(string $ip){
+        foreach($this->likes as $like){
+            if($like->isEqualIp($ip)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function getLikeFromIp(string $ip){
+        foreach($this->likes as $like){
+            if($like->isEqualIp($ip)){
+                return $like;
+            }
+        }
+        return false;
+    }
+
     public function countLikes(){
         return count($this->getLikes());
+    }
+
+    public function getActiveLikes(){
+        if($this->countLikes() > 0){
+            $active = [];
+            foreach($this->getLikes() as $like){
+                if($like->isActiveLike()){
+                    $active[] = $like;
+                }
+            }
+            return $active;
+        }
+        
+        return null;
+    }
+
+    public function hasActiveLikes(){
+        return $this->getActiveLikes() ? true : false;
+    }
+
+    public function countActiveLikes(){
+        return $this->hasActiveLikes() ? count($this->getActiveLikes()) : 0;
     }
 
     // public function getActiveLikesIps(){
@@ -74,6 +120,11 @@ class CommentEntity{
         return $this->id;
     }
 
+    public function getIdString()
+    {
+        return $this->getId()->getId();
+    }
+    
     public static function getIdAsString(CommentId $id)
     {
         return $id->getId();
