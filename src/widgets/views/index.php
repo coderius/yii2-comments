@@ -21,6 +21,7 @@ $defaultAvatar = '/yii2-youtube-analizer/assets/31eba4b0/default/default-comment
       'commentsInputNameLabel',
       'commentsTextareaLabel',
       'commentsInputNamePlaceholder',
-      'commentsTextareaPlaceholder'
+      'commentsTextareaPlaceholder',
+      'commentsCaptchaLabel'
     )); ?>
 </div>

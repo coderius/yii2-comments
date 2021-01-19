@@ -60,7 +60,7 @@ use yii\captcha\Captcha;
 
   <!-- Captcha -->
   <?= Html::beginTag('div', $options = ['class' => 'field']); ?>
-    <?= Html::label('Captcha *'); ?>
+    <?= Html::label("{$commentsCaptchaLabel} *"); ?>
     <?= Html::beginTag('div', $options = ['style' => 'display: flex;']); ?>
       <?= Captcha::widget([
               'name' => 'verifyCode',

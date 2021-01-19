@@ -36,6 +36,7 @@ class DefaultController extends Controller
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+                'fontFile' => '@coderius/comments/components/captcha/fonts/PublicSans-Light.ttf'
             ],
         ];
     }

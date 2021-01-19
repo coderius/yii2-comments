@@ -27,6 +27,7 @@ class Comments extends Widget
     public $commentReplyLinkTitle = 'Reply';
     public $commentsInputNameLabel = 'Your Name';
     public $commentsTextareaLabel = 'Your Comment';
+    public $commentsCaptchaLabel = 'Captcha';
     public $commentsInputNamePlaceholder = 'Write your First Name';
     public $commentsTextareaPlaceholder = 'Write your comment ...';
 
@@ -70,6 +71,7 @@ class Comments extends Widget
             'commentReplyLinkTitle' => Yii::t('coderius.comments.messages', $this->commentReplyLinkTitle),
             'commentsInputNameLabel' => Yii::t('coderius.comments.messages', $this->commentsInputNameLabel),
             'commentsTextareaLabel' => Yii::t('coderius.comments.messages', $this->commentsTextareaLabel),
+            'commentsCaptchaLabel' => Yii::t('coderius.comments.messages', $this->commentsCaptchaLabel),
             'commentsInputNamePlaceholder' => Yii::t('coderius.comments.messages', $this->commentsInputNamePlaceholder),
             'commentsTextareaPlaceholder' => Yii::t('coderius.comments.messages', $this->commentsTextareaPlaceholder),
             'wrapperId' => $this->wrapperId,
