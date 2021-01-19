@@ -28,7 +28,7 @@ use coderius\comments\components\services\CommentService;
             </div>
         </div>
         <div class="text">
-            <?= $comment->content; ?>
+            <pre><code></code><?= $comment->content; ?></code></pre>
         </div>
         <div class="actions">
             <a class="reply"><?= $commentReplyLinkTitle; ?></a>

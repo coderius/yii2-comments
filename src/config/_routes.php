@@ -12,5 +12,6 @@ return [
 
     'POST comments/default/create-comment' => 'default/create-comment',
     'POST comments/default/like' => 'default/like',
+    'comments/default/captcha' => 'default/captcha',
     // 'default/<action>' => 'default/<action>',
 ];

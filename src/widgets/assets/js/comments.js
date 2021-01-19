@@ -120,6 +120,8 @@
     function formValidation(result, $form){
         var items = result.data;
         // console.log(items);
+
+        
         Object.entries(items).map(function(item) {
             createValidationItem(item, $form);
         });
@@ -131,23 +133,23 @@
         var name = item[0],
             messages = item[1],
             $inputOrTextarea = $form.find("[name=" + name + "]"),
-            $field = $inputOrTextarea.parent('.field'),
+            $field = $inputOrTextarea.closest('.field'),
             errorWrapperSelector = '.field-validation-error-wrapper',
-            $errorWrapper = $inputOrTextarea.siblings(errorWrapperSelector);
-
+            $errorWrapper = $field.find(errorWrapperSelector);
+// console.log($inputOrTextarea);
+// console.log($field);
         $field.addClass( "error" );
         messages.map(function(item) {
             $errorWrapper.append( "<p>"+ item +"</p>" );
             // console.log(item);
         });
-
+        
         // console.log($errorWrapper);
     }
 
     function toggleSpinner($container){
         $container.toggleClass(selectors.spinnerClass);
     }
-
 
 /**
  * Create comment from form
@@ -218,10 +220,12 @@
             commentBlock = $(this).closest(pluginSettings.commentSelectors.commentBlockClass),
             dataCommentId = commentBlock.data("comment-id"),
             $input = $form.find(pluginSettings.formSelectors.hiddenInputParentId);
-
-            console.log(dataCommentId);
-
+            
+            //If editor is moved to some next dom element, then needed reinit plugin
+            var settingsTinymce = tinymce.activeEditor.settings;
+            tinymce.remove();
             $form.insertAfter($divActions);
+            tinymce.init(settingsTinymce);
             $input.val(dataCommentId);//set parent comment id to hidden input
     }
 
@@ -257,9 +261,12 @@
 
                 toggleSpinner($iconBox );
             }else{
-
+                throw new Error('Error in like hendler ajax process');
             }
             console.log(res);
+        })
+        .catch(function(e) {
+            console.error(e);
         });
 
         // console.log($(this));
