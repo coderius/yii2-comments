@@ -9,6 +9,7 @@ use yii\db\ActiveQuery;
 use yii\base\Model;
 use yii\helpers\ArrayHelper;
 use coderius\comments\components\behaviors\PurifyBehavior;
+use yii\helpers\Url;
 
 class CommentFormModel extends Model{
 
@@ -32,8 +33,8 @@ class CommentFormModel extends Model{
              [['commentorFirstName', 'commentText', 'verifyCode'], 'required'],
              [['commentorFirstName'], 'string', 'max' => 255],
              [['commentText'], 'string', 'max' => 50000],
-            //  ['verifyCode', 'captcha'],
-             [['materialId', 'parentId', 'introducedAvatar', 'encryptedData', 'verifyCode'], 'safe']
+             ['verifyCode', 'captcha', 'captchaAction' => 'comments/default/captcha'],
+             [['materialId', 'parentId', 'introducedAvatar', 'encryptedData'], 'safe']
          ];
      }
 
