@@ -79,7 +79,7 @@ class CommentService extends BaseObject
      */
     public static function getCountTree($tree, $count = 0)
     {
-        if (count($tree) == 0) {
+        if (!$tree || count($tree) == 0) {
             return $count;
         }
 
