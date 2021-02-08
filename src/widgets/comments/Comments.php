@@ -23,6 +23,7 @@ class Comments extends Widget
     public $commentsBlockTitle = 'Comments';
 
     public $commentsFormButtonTitle = 'Add Reply';
+    public $commentsFormButtonCancelTitle = 'Cancel reply';
 
     public $commentReplyLinkTitle = 'Reply';
     public $commentsInputNameLabel = 'Your Name';
@@ -69,6 +70,7 @@ class Comments extends Widget
             'encryptedData' => $this->encryptedData,
             'commentsBlockTitle' => Yii::t('coderius.comments.messages', $this->commentsBlockTitle) . " ({$countComments})",
             'commentsFormButtonTitle' => Yii::t('coderius.comments.messages', $this->commentsFormButtonTitle),
+            'commentsFormButtonCancelTitle' => Yii::t('coderius.comments.messages', $this->commentsFormButtonCancelTitle),
             'commentReplyLinkTitle' => Yii::t('coderius.comments.messages', $this->commentReplyLinkTitle),
             'commentsInputNameLabel' => Yii::t('coderius.comments.messages', $this->commentsInputNameLabel),
             'commentsTextareaLabel' => Yii::t('coderius.comments.messages', $this->commentsTextareaLabel),

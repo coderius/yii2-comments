@@ -9,7 +9,8 @@
     var defaults = {
         wrapperSelector: '.coderius.comments',
         formSelector: '.coderius.form',
-        formButtonSelector: '.coderius.button',
+        formButtonSelector: '.coderius.button.submit',
+        formButtonСancelSelector: '.coderius.button.cancel',
         replyLinkSelector: '.actions .reply',
         commentSelectors: {
             commentBlockClass: '.comment',
@@ -44,6 +45,7 @@
                     $wrapper = $(this),
                     formSelector = settings.formSelector,
                     formButtonSelector = settings.formButtonSelector,
+                    formButtonСancelSelector = settings.formButtonСancelSelector,
                     replyLinkSelector = settings.replyLinkSelector,
                     likeIconSelector = settings.commentSelectors.likeIconSelector,
                     $form = $(formSelector),
@@ -54,7 +56,8 @@
                     $form: $form, 
                     formAction: formAction, 
                     formMethod: formMethod,
-                    settings: settings
+                    settings: settings,
+                    $wrapper: $wrapper
                 };
 
                 var replyDTO = {
@@ -70,7 +73,8 @@
 
                 $wrapper.on('click.like.icon', likeIconSelector, likeDTO, likeComment);
                 $wrapper.on('click.reply.link', replyLinkSelector, replyDTO, replyComment);
-                $wrapper.on('click.form.button', formButtonSelector, formHendlerDTO, createComment);
+                $wrapper.on('click.form.button.submit', formButtonSelector, formHendlerDTO, createComment);
+                $wrapper.on('click.form.button.cancel', formButtonСancelSelector, formHendlerDTO, canselReply);
             });
         },
         beforeCreate: function (params) {
@@ -222,7 +226,8 @@
             dataCommentId = commentBlock.data("comment-id"),
             dataCommentLevel = commentBlock.data("comment-level"),
             $hiddenInputParentId = $form.find(pluginSettings.formSelectors.hiddenInputParentId),
-            $hiddenInputCommentLevel = $form.find(pluginSettings.formSelectors.hiddenInputCommentLevel);
+            $hiddenInputCommentLevel = $form.find(pluginSettings.formSelectors.hiddenInputCommentLevel),
+            $buttonCancel = $form.find(pluginSettings.formButtonСancelSelector);
             
             //If editor is moved to some next dom element, then needed reinit plugin
             var settingsTinymce = tinymce.activeEditor.settings;
@@ -231,6 +236,30 @@
             tinymce.init(settingsTinymce);
             $hiddenInputParentId.val(dataCommentId);//set parent comment id to hidden input
             $hiddenInputCommentLevel.val(dataCommentLevel+1);//set level to hidden input
+            $buttonCancel.css({"visibility":"visible"});
+    }
+
+    function canselReply(e){
+        e.preventDefault();
+        var $form = e.data.$form,
+            button = $(this),
+            pluginSettings = e.data.settings,
+            $hiddenInputParentId = $form.find(pluginSettings.formSelectors.hiddenInputParentId),
+            $hiddenInputCommentLevel = $form.find(pluginSettings.formSelectors.hiddenInputCommentLevel),
+            $wrapper = e.data.$wrapper,
+            settingsTinymce = tinymce.activeEditor.settings;
+
+            $hiddenInputParentId.val('');//set parent comment id to hidden input
+            $hiddenInputCommentLevel.val('');//set level to hidden input
+            
+            tinymce.remove();
+            $form.appendTo($wrapper);
+            tinymce.init(settingsTinymce);
+
+            button.css({"visibility":"hidden"});
+
+
+
     }
 
     function likeComment(e){
@@ -267,7 +296,7 @@
             }else{
                 throw new Error('Error in like hendler ajax process');
             }
-            console.log(res);
+            // console.log(res);
         })
         .catch(function(e) {
             console.error(e);

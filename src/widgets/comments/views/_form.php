@@ -110,10 +110,16 @@ $this->registerJs(
   <?= Html::endTag('div'); ?>
   
 
-<!-- button -->
+<!-- button submit-->
   <?= Html::beginTag('div', $options = ['class' => 'coderius blue labeled submit icon button']); ?>
       <?= Html::beginTag('i', ['class' => 'icon edit']); ?><?= Html::endTag('i'); ?>
       <?= $commentsFormButtonTitle; ?>
+  <?= Html::endTag('div'); ?>
+
+<!-- button cancel-->
+  <?= Html::beginTag('div', $options = ['class' => 'coderius labeled cancel icon button', 'style' => 'visibility:hidden']); ?>
+      <?= Html::beginTag('i', ['class' => 'icon undo']); ?><?= Html::endTag('i'); ?>
+      <?= $commentsFormButtonCancelTitle; ?>
   <?= Html::endTag('div'); ?>
 
 <?= Html::endForm(); ?>
