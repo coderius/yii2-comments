@@ -36,6 +36,7 @@ class CommentFormModel extends Model{
              [['commentText'], 'string', 'max' => 50000],
              ['verifyCode', 'captcha', 'captchaAction' => 'comments/default/captcha'],
              ['level', 'default', 'value' => 0],
+             ['parentId', 'default', 'value' => NULL],
              ['level', 'integer'],
              [['materialId', 'parentId', 'introducedAvatar', 'encryptedData'], 'safe']
          ];
