@@ -20,6 +20,7 @@ use coderius\comments\components\services\CommentService;
     </a>
     <div class="content">
         <a class="author"><?= $comment->introducedName; ?></a>
+        <small class="authorType">(<?= $comment->createdBy ? Yii::t('coderius.comments.messages', 'User') : Yii::t('coderius.comments.messages', 'Guest'); ?>)</small>
         <div class="metadata">
             <span class="date"><?= $comment->createdAt; ?></span>
             <div class="rating">

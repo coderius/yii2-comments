@@ -7,6 +7,7 @@ return [
     'No comments yet.' => 'Комментариев еще нет.',
     'Comments' => 'Комментарии',
     'Guest' => 'Гость',
+    'User' => 'Пользователь',
     'Content' => 'Контент комментария',
     'Said Name' => 'Указанное имя',
     'Said Email' => 'Указанный email',

@@ -10,6 +10,23 @@
 
 ## Usage
 
+**Notes:**
+> 1) You can implement your own methods `getAvatar` and `getUsername` in the `userIdentityClass`. Just create this methods in your User model. For example:
+
+```php
+
+public function getAvatar()
+{
+    // your custom code
+}
+
+public function getUsername()
+{
+    // your custom code
+}
+
+```
+
 ### Widget with minimum options
 
 
