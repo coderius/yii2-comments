@@ -1,0 +1,3826 @@
+/*******************************
+            Button
+*******************************/
+
+.coderius.button {
+    cursor: pointer;
+    display: inline-block;
+    min-height: 1em;
+    outline: none;
+    border: none;
+    vertical-align: baseline;
+    background: #E0E1E2 none;
+    color: rgba(0, 0, 0, 0.6);
+    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    margin: 0em 0.25em 0em 0em;
+    padding: 0.78571429em 1.5em 0.78571429em;
+    text-transform: none;
+    text-shadow: none;
+    font-weight: bold;
+    line-height: 1em;
+    font-style: normal;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0.28571429rem;
+    -webkit-box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    -webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, background 0.1s ease, -webkit-box-shadow 0.1s ease;
+    transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, background 0.1s ease, -webkit-box-shadow 0.1s ease;
+    transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+    transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease, -webkit-box-shadow 0.1s ease;
+    will-change: '';
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  
+  /*******************************
+              States
+  *******************************/
+  
+  
+  /*--------------
+        Hover
+  ---------------*/
+  
+  .coderius.button:hover {
+    background-color: #CACBCD;
+    background-image: none;
+    -webkit-box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+    color: rgba(0, 0, 0, 0.8);
+  }
+  .coderius.button:hover .icon {
+    opacity: 0.85;
+  }
+  
+  /*--------------
+        Focus
+  ---------------*/
+  
+  .coderius.button:focus {
+    background-color: #CACBCD;
+    color: rgba(0, 0, 0, 0.8);
+    background-image: '' !important;
+    -webkit-box-shadow: '' !important;
+            box-shadow: '' !important;
+  }
+  .coderius.button:focus .icon {
+    opacity: 0.85;
+  }
+  
+  /*--------------
+        Down
+  ---------------*/
+  
+  .coderius.button:active,
+  .coderius.active.button:active {
+    background-color: #BABBBC;
+    background-image: '';
+    color: rgba(0, 0, 0, 0.9);
+    -webkit-box-shadow: 0px 0px 0px 1px transparent inset, none;
+            box-shadow: 0px 0px 0px 1px transparent inset, none;
+  }
+  
+  /*--------------
+       Active
+  ---------------*/
+  
+  .coderius.active.button {
+    background-color: #C0C1C2;
+    background-image: none;
+    -webkit-box-shadow: 0px 0px 0px 1px transparent inset;
+            box-shadow: 0px 0px 0px 1px transparent inset;
+    color: rgba(0, 0, 0, 0.95);
+  }
+  .coderius.active.button:hover {
+    background-color: #C0C1C2;
+    background-image: none;
+    color: rgba(0, 0, 0, 0.95);
+  }
+  .coderius.active.button:active {
+    background-color: #C0C1C2;
+    background-image: none;
+  }
+  
+  /*--------------
+      Loading
+  ---------------*/
+  
+  
+  /* Specificity hack */
+  .coderius.loading.loading.loading.loading.loading.loading.button {
+    position: relative;
+    cursor: default;
+    text-shadow: none !important;
+    color: transparent !important;
+    opacity: 1;
+    pointer-events: auto;
+    -webkit-transition: all 0s linear, opacity 0.1s ease;
+    transition: all 0s linear, opacity 0.1s ease;
+  }
+  .coderius.loading.button:before {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    margin: -0.64285714em 0em 0em -0.64285714em;
+    width: 1.28571429em;
+    height: 1.28571429em;
+    border-radius: 500rem;
+    border: 0.2em solid rgba(0, 0, 0, 0.15);
+  }
+  .coderius.loading.button:after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    margin: -0.64285714em 0em 0em -0.64285714em;
+    width: 1.28571429em;
+    height: 1.28571429em;
+    -webkit-animation: button-spin 0.6s linear;
+            animation: button-spin 0.6s linear;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    border-radius: 500rem;
+    border-color: #FFFFFF transparent transparent;
+    border-style: solid;
+    border-width: 0.2em;
+    -webkit-box-shadow: 0px 0px 0px 1px transparent;
+            box-shadow: 0px 0px 0px 1px transparent;
+  }
+  .coderius.labeled.icon.loading.button .icon {
+    background-color: transparent;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  @-webkit-keyframes button-spin {
+    from {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  @keyframes button-spin {
+    from {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  .coderius.basic.loading.button:not(.inverted):before {
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+  .coderius.basic.loading.button:not(.inverted):after {
+    border-top-color: #767676;
+  }
+  
+  /*-------------------
+        Disabled
+  --------------------*/
+  
+  .coderius.buttons .disabled.button,
+  .coderius.disabled.button,
+  .coderius.button:disabled,
+  .coderius.disabled.button:hover,
+  .coderius.disabled.active.button {
+    cursor: default;
+    opacity: 0.45 !important;
+    background-image: none !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    pointer-events: none !important;
+  }
+  
+  /* Basic Group With Disabled */
+  .coderius.basic.buttons .coderius.disabled.button {
+    border-color: rgba(34, 36, 38, 0.5);
+  }
+  
+  
+  /*******************************
+               Types
+  *******************************/
+  
+  
+  /*-------------------
+         Animated
+  --------------------*/
+  
+  .coderius.animated.button {
+    position: relative;
+    overflow: hidden;
+    padding-right: 0em !important;
+    vertical-align: middle;
+    z-index: 1;
+  }
+  .coderius.animated.button .content {
+    will-change: transform, opacity;
+  }
+  .coderius.animated.button .visible.content {
+    position: relative;
+    margin-right: 1.5em;
+  }
+  .coderius.animated.button .hidden.content {
+    position: absolute;
+    width: 100%;
+  }
+  
+  /* Horizontal */
+  .coderius.animated.button .visible.content,
+  .coderius.animated.button .hidden.content {
+    -webkit-transition: right 0.3s ease 0s;
+    transition: right 0.3s ease 0s;
+  }
+  .coderius.animated.button .visible.content {
+    left: auto;
+    right: 0%;
+  }
+  .coderius.animated.button .hidden.content {
+    top: 50%;
+    left: auto;
+    right: -100%;
+    margin-top: -0.5em;
+  }
+  .coderius.animated.button:focus .visible.content,
+  .coderius.animated.button:hover .visible.content {
+    left: auto;
+    right: 200%;
+  }
+  .coderius.animated.button:focus .hidden.content,
+  .coderius.animated.button:hover .hidden.content {
+    left: auto;
+    right: 0%;
+  }
+  
+  /* Vertical */
+  .coderius.vertical.animated.button .visible.content,
+  .coderius.vertical.animated.button .hidden.content {
+    -webkit-transition: top 0.3s ease, -webkit-transform 0.3s ease;
+    transition: top 0.3s ease, -webkit-transform 0.3s ease;
+    transition: top 0.3s ease, transform 0.3s ease;
+    transition: top 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
+  }
+  .coderius.vertical.animated.button .visible.content {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+    right: auto;
+  }
+  .coderius.vertical.animated.button .hidden.content {
+    top: -50%;
+    left: 0%;
+    right: auto;
+  }
+  .coderius.vertical.animated.button:focus .visible.content,
+  .coderius.vertical.animated.button:hover .visible.content {
+    -webkit-transform: translateY(200%);
+            transform: translateY(200%);
+    right: auto;
+  }
+  .coderius.vertical.animated.button:focus .hidden.content,
+  .coderius.vertical.animated.button:hover .hidden.content {
+    top: 50%;
+    right: auto;
+  }
+  
+  /* Fade */
+  .coderius.fade.animated.button .visible.content,
+  .coderius.fade.animated.button .hidden.content {
+    -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+    transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
+  }
+  .coderius.fade.animated.button .visible.content {
+    left: auto;
+    right: auto;
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  .coderius.fade.animated.button .hidden.content {
+    opacity: 0;
+    left: 0%;
+    right: auto;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  .coderius.fade.animated.button:focus .visible.content,
+  .coderius.fade.animated.button:hover .visible.content {
+    left: auto;
+    right: auto;
+    opacity: 0;
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+  }
+  .coderius.fade.animated.button:focus .hidden.content,
+  .coderius.fade.animated.button:hover .hidden.content {
+    left: 0%;
+    right: auto;
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  
+  /*-------------------
+         Inverted
+  --------------------*/
+  
+  .coderius.inverted.button {
+    -webkit-box-shadow: 0px 0px 0px 2px #FFFFFF inset !important;
+            box-shadow: 0px 0px 0px 2px #FFFFFF inset !important;
+    background: transparent none;
+    color: #FFFFFF;
+    text-shadow: none !important;
+  }
+  
+  /* Group */
+  .coderius.inverted.buttons .button {
+    margin: 0px 0px 0px -2px;
+  }
+  .coderius.inverted.buttons .button:first-child {
+    margin-left: 0em;
+  }
+  .coderius.inverted.vertical.buttons .button {
+    margin: 0px 0px -2px 0px;
+  }
+  .coderius.inverted.vertical.buttons .button:first-child {
+    margin-top: 0em;
+  }
+  
+  /* States */
+  
+  /* Hover */
+  .coderius.inverted.button:hover {
+    background: #FFFFFF;
+    -webkit-box-shadow: 0px 0px 0px 2px #FFFFFF inset !important;
+            box-shadow: 0px 0px 0px 2px #FFFFFF inset !important;
+    color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Active / Focus */
+  .coderius.inverted.button:focus,
+  .coderius.inverted.button.active {
+    background: #FFFFFF;
+    -webkit-box-shadow: 0px 0px 0px 2px #FFFFFF inset !important;
+            box-shadow: 0px 0px 0px 2px #FFFFFF inset !important;
+    color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Active Focus */
+  .coderius.inverted.button.active:focus {
+    background: #DCDDDE;
+    -webkit-box-shadow: 0px 0px 0px 2px #DCDDDE inset !important;
+            box-shadow: 0px 0px 0px 2px #DCDDDE inset !important;
+    color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /*-------------------
+      Labeled Button
+  --------------------*/
+  
+  .coderius.labeled.button:not(.icon) {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    background: none !important;
+    padding: 0px !important;
+    border: none !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+  }
+  .coderius.labeled.button > .button {
+    margin: 0px;
+  }
+  .coderius.labeled.button > .label {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 0px 0px 0px -1px !important;
+    padding: '';
+    font-size: 1em;
+    border-color: rgba(34, 36, 38, 0.15);
+  }
+  
+  /* Tag */
+  .coderius.labeled.button > .tag.label:before {
+    width: 1.85em;
+    height: 1.85em;
+  }
+  
+  /* Right */
+  .coderius.labeled.button:not([class*="left labeled"]) > .button {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  .coderius.labeled.button:not([class*="left labeled"]) > .label {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+  
+  /* Left Side */
+  .coderius[class*="left labeled"].button > .button {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+  .coderius[class*="left labeled"].button > .label {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  
+  /*-------------------
+         Social
+  --------------------*/
+  
+  
+  /* Facebook */
+  .coderius.facebook.button {
+    background-color: #3B5998;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.facebook.button:hover {
+    background-color: #304d8a;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.facebook.button:active {
+    background-color: #2d4373;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Twitter */
+  .coderius.twitter.button {
+    background-color: #55ACEE;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.twitter.button:hover {
+    background-color: #35a2f4;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.twitter.button:active {
+    background-color: #2795e9;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Google Plus */
+  .coderius.google.plus.button {
+    background-color: #DD4B39;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.google.plus.button:hover {
+    background-color: #e0321c;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.google.plus.button:active {
+    background-color: #c23321;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Linked In */
+  .coderius.linkedin.button {
+    background-color: #1F88BE;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.linkedin.button:hover {
+    background-color: #147baf;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.linkedin.button:active {
+    background-color: #186992;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* YouTube */
+  .coderius.youtube.button {
+    background-color: #FF0000;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.youtube.button:hover {
+    background-color: #e60000;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.youtube.button:active {
+    background-color: #cc0000;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Instagram */
+  .coderius.instagram.button {
+    background-color: #49769C;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.instagram.button:hover {
+    background-color: #3d698e;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.instagram.button:active {
+    background-color: #395c79;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Pinterest */
+  .coderius.pinterest.button {
+    background-color: #BD081C;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.pinterest.button:hover {
+    background-color: #ac0013;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.pinterest.button:active {
+    background-color: #8c0615;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* VK */
+  .coderius.vk.button {
+    background-color: #4D7198;
+    color: #FFFFFF;
+    background-image: none;
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.vk.button:hover {
+    background-color: #41648a;
+    color: #FFFFFF;
+  }
+  .coderius.vk.button:active {
+    background-color: #3c5876;
+    color: #FFFFFF;
+  }
+  
+  /*--------------
+       Icon
+  ---------------*/
+  
+  .coderius.button > .icon:not(.button) {
+    height: 0.85714286em;
+    opacity: 0.8;
+    margin: 0em 0.42857143em 0em -0.21428571em;
+    -webkit-transition: opacity 0.1s ease;
+    transition: opacity 0.1s ease;
+    vertical-align: '';
+    color: '';
+  }
+  .coderius.button:not(.icon) > .icon:not(.button):not(.dropdown) {
+    margin: 0em 0.42857143em 0em -0.21428571em;
+  }
+  .coderius.button:not(.icon) > .right.icon:not(.button):not(.dropdown) {
+    margin: 0em -0.21428571em 0em 0.42857143em;
+  }
+  
+  
+  /*******************************
+             Variations
+  *******************************/
+  
+  
+  /*-------------------
+         Floated
+  --------------------*/
+  
+  .coderius[class*="left floated"].buttons,
+  .coderius[class*="left floated"].button {
+    float: left;
+    margin-left: 0em;
+    margin-right: 0.25em;
+  }
+  .coderius[class*="right floated"].buttons,
+  .coderius[class*="right floated"].button {
+    float: right;
+    margin-right: 0em;
+    margin-left: 0.25em;
+  }
+  
+  /*-------------------
+         Compact
+  --------------------*/
+  
+  .coderius.compact.buttons .button,
+  .coderius.compact.button {
+    padding: 0.58928571em 1.125em 0.58928571em;
+  }
+  .coderius.compact.icon.buttons .button,
+  .coderius.compact.icon.button {
+    padding: 0.58928571em 0.58928571em 0.58928571em;
+  }
+  .coderius.compact.labeled.icon.buttons .button,
+  .coderius.compact.labeled.icon.button {
+    padding: 0.58928571em 3.69642857em 0.58928571em;
+  }
+  
+  /*-------------------
+          Sizes
+  --------------------*/
+  
+  .coderius.mini.buttons .button,
+  .coderius.mini.buttons .or,
+  .coderius.mini.button {
+    font-size: 0.78571429rem;
+  }
+  .coderius.tiny.buttons .button,
+  .coderius.tiny.buttons .or,
+  .coderius.tiny.button {
+    font-size: 0.85714286rem;
+  }
+  .coderius.small.buttons .button,
+  .coderius.small.buttons .or,
+  .coderius.small.button {
+    font-size: 0.92857143rem;
+  }
+  .coderius.buttons .button,
+  .coderius.buttons .or,
+  .coderius.button {
+    font-size: 1rem;
+  }
+  .coderius.large.buttons .button,
+  .coderius.large.buttons .or,
+  .coderius.large.button {
+    font-size: 1.14285714rem;
+  }
+  .coderius.big.buttons .button,
+  .coderius.big.buttons .or,
+  .coderius.big.button {
+    font-size: 1.28571429rem;
+  }
+  .coderius.huge.buttons .button,
+  .coderius.huge.buttons .or,
+  .coderius.huge.button {
+    font-size: 1.42857143rem;
+  }
+  .coderius.massive.buttons .button,
+  .coderius.massive.buttons .or,
+  .coderius.massive.button {
+    font-size: 1.71428571rem;
+  }
+  
+  /*--------------
+      Icon Only
+  ---------------*/
+  
+  .coderius.icon.buttons .button,
+  .coderius.icon.button {
+    padding: 0.78571429em 0.78571429em 0.78571429em;
+  }
+  .coderius.icon.buttons .button > .icon,
+  .coderius.icon.button > .icon {
+    opacity: 0.9;
+    margin: 0em !important;
+    vertical-align: top;
+  }
+  
+  /*-------------------
+          Basic
+  --------------------*/
+  
+  .coderius.basic.buttons .button,
+  .coderius.basic.button {
+    background: transparent none !important;
+    color: rgba(0, 0, 0, 0.6) !important;
+    font-weight: normal;
+    border-radius: 0.28571429rem;
+    text-transform: none;
+    text-shadow: none !important;
+    -webkit-box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.basic.buttons {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border: 1px solid rgba(34, 36, 38, 0.15);
+    border-radius: 0.28571429rem;
+  }
+  .coderius.basic.buttons .button {
+    border-radius: 0em;
+  }
+  .coderius.basic.buttons .button:hover,
+  .coderius.basic.button:hover {
+    background: #FFFFFF !important;
+    color: rgba(0, 0, 0, 0.8) !important;
+    -webkit-box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.35) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.35) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.basic.buttons .button:focus,
+  .coderius.basic.button:focus {
+    background: #FFFFFF !important;
+    color: rgba(0, 0, 0, 0.8) !important;
+    -webkit-box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.35) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.35) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.basic.buttons .button:active,
+  .coderius.basic.button:active {
+    background: #F8F8F8 !important;
+    color: rgba(0, 0, 0, 0.9) !important;
+    -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.basic.buttons .active.button,
+  .coderius.basic.active.button {
+    background: rgba(0, 0, 0, 0.05) !important;
+    -webkit-box-shadow: '' !important;
+            box-shadow: '' !important;
+    color: rgba(0, 0, 0, 0.95) !important;
+  }
+  .coderius.basic.buttons .active.button:hover,
+  .coderius.basic.active.button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Vertical */
+  .coderius.basic.buttons .button:hover {
+    -webkit-box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.35) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.15) inset inset;
+            box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.35) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.15) inset inset;
+  }
+  .coderius.basic.buttons .button:active {
+    -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(34, 36, 38, 0.15) inset inset;
+            box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(34, 36, 38, 0.15) inset inset;
+  }
+  .coderius.basic.buttons .active.button {
+    -webkit-box-shadow: '' !important;
+            box-shadow: '' !important;
+  }
+  
+  /* Standard Basic Inverted */
+  .coderius.basic.inverted.buttons .button,
+  .coderius.basic.inverted.button {
+    background-color: transparent !important;
+    color: #F9FAFB !important;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+            box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+  }
+  .coderius.basic.inverted.buttons .button:hover,
+  .coderius.basic.inverted.button:hover {
+    color: #FFFFFF !important;
+    -webkit-box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+            box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+  }
+  .coderius.basic.inverted.buttons .button:focus,
+  .coderius.basic.inverted.button:focus {
+    color: #FFFFFF !important;
+    -webkit-box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+            box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+  }
+  .coderius.basic.inverted.buttons .button:active,
+  .coderius.basic.inverted.button:active {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    color: #FFFFFF !important;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.9) inset !important;
+            box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.9) inset !important;
+  }
+  .coderius.basic.inverted.buttons .active.button,
+  .coderius.basic.inverted.active.button {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #FFFFFF;
+    text-shadow: none;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.7) inset;
+            box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.7) inset;
+  }
+  .coderius.basic.inverted.buttons .active.button:hover,
+  .coderius.basic.inverted.active.button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    -webkit-box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+            box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+  }
+  
+  /* Basic Group */
+  .coderius.basic.buttons .button {
+    border-left: 1px solid rgba(34, 36, 38, 0.15);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .coderius.basic.vertical.buttons .button {
+    border-left: none;
+  }
+  .coderius.basic.vertical.buttons .button {
+    border-left-width: 0px;
+    border-top: 1px solid rgba(34, 36, 38, 0.15);
+  }
+  .coderius.basic.vertical.buttons .button:first-child {
+    border-top-width: 0px;
+  }
+  
+  /*--------------
+    Labeled Icon
+  ---------------*/
+  
+  .coderius.labeled.icon.buttons .button,
+  .coderius.labeled.icon.button {
+    position: relative;
+    padding-left: 4.07142857em !important;
+    padding-right: 1.5em !important;
+  }
+  
+  /* Left Labeled */
+  .coderius.labeled.icon.buttons > .button > .icon,
+  .coderius.labeled.icon.button > .icon {
+    position: absolute;
+    height: 100%;
+    line-height: 1;
+    border-radius: 0px;
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+    text-align: center;
+    margin: 0em;
+    width: 2.57142857em;
+    background-color: rgba(0, 0, 0, 0.05);
+    color: '';
+    -webkit-box-shadow: -1px 0px 0px 0px transparent inset;
+            box-shadow: -1px 0px 0px 0px transparent inset;
+  }
+  
+  /* Left Labeled */
+  .coderius.labeled.icon.buttons > .button > .icon,
+  .coderius.labeled.icon.button > .icon {
+    top: 0em;
+    left: 0em;
+  }
+  
+  /* Right Labeled */
+  .coderius[class*="right labeled"].icon.button {
+    padding-right: 4.07142857em !important;
+    padding-left: 1.5em !important;
+  }
+  .coderius[class*="right labeled"].icon.button > .icon {
+    left: auto;
+    right: 0em;
+    border-radius: 0px;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+    -webkit-box-shadow: 1px 0px 0px 0px transparent inset;
+            box-shadow: 1px 0px 0px 0px transparent inset;
+  }
+  .coderius.labeled.icon.buttons > .button > .icon:before,
+  .coderius.labeled.icon.button > .icon:before,
+  .coderius.labeled.icon.buttons > .button > .icon:after,
+  .coderius.labeled.icon.button > .icon:after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    text-align: center;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  .coderius.labeled.icon.buttons .button > .icon {
+    border-radius: 0em;
+  }
+  .coderius.labeled.icon.buttons .button:first-child > .icon {
+    border-top-left-radius: 0.28571429rem;
+    border-bottom-left-radius: 0.28571429rem;
+  }
+  .coderius.labeled.icon.buttons .button:last-child > .icon {
+    border-top-right-radius: 0.28571429rem;
+    border-bottom-right-radius: 0.28571429rem;
+  }
+  .coderius.vertical.labeled.icon.buttons .button:first-child > .icon {
+    border-radius: 0em;
+    border-top-left-radius: 0.28571429rem;
+  }
+  .coderius.vertical.labeled.icon.buttons .button:last-child > .icon {
+    border-radius: 0em;
+    border-bottom-left-radius: 0.28571429rem;
+  }
+  
+  /* Fluid Labeled */
+  .coderius.fluid[class*="left labeled"].icon.button,
+  .coderius.fluid[class*="right labeled"].icon.button {
+    padding-left: 1.5em !important;
+    padding-right: 1.5em !important;
+  }
+  
+  /*--------------
+       Toggle
+  ---------------*/
+  
+  
+  /* Toggle (Modifies active state to give affordances) */
+  .coderius.toggle.buttons .active.button,
+  .coderius.buttons .button.toggle.active,
+  .coderius.button.toggle.active {
+    background-color: #21BA45 !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    text-shadow: none;
+    color: #FFFFFF !important;
+  }
+  .coderius.button.toggle.active:hover {
+    background-color: #16ab39 !important;
+    text-shadow: none;
+    color: #FFFFFF !important;
+  }
+  
+  /*--------------
+      Circular
+  ---------------*/
+  
+  .coderius.circular.button {
+    border-radius: 10em;
+  }
+  .coderius.circular.button > .icon {
+    width: 1em;
+    vertical-align: baseline;
+  }
+  
+  /*-------------------
+        Or Buttons
+  --------------------*/
+  
+  .coderius.buttons .or {
+    position: relative;
+    width: 0.3em;
+    height: 2.57142857em;
+    z-index: 3;
+  }
+  .coderius.buttons .or:before {
+    position: absolute;
+    text-align: center;
+    border-radius: 500rem;
+    content: 'or';
+    top: 50%;
+    left: 50%;
+    background-color: #FFFFFF;
+    text-shadow: none;
+    margin-top: -0.89285714em;
+    margin-left: -0.89285714em;
+    width: 1.78571429em;
+    height: 1.78571429em;
+    line-height: 1.78571429em;
+    color: rgba(0, 0, 0, 0.4);
+    font-style: normal;
+    font-weight: bold;
+    -webkit-box-shadow: 0px 0px 0px 1px transparent inset;
+            box-shadow: 0px 0px 0px 1px transparent inset;
+  }
+  .coderius.buttons .or[data-text]:before {
+    content: attr(data-text);
+  }
+  
+  /* Fluid Or */
+  .coderius.fluid.buttons .or {
+    width: 0em !important;
+  }
+  .coderius.fluid.buttons .or:after {
+    display: none;
+  }
+  
+  /*-------------------
+         Attached
+  --------------------*/
+  
+  
+  /* Singular */
+  .coderius.attached.button {
+    position: relative;
+    display: block;
+    margin: 0em;
+    border-radius: 0em;
+    -webkit-box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) !important;
+            box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) !important;
+  }
+  
+  /* Top / Bottom */
+  .coderius.attached.top.button {
+    border-radius: 0.28571429rem 0.28571429rem 0em 0em;
+  }
+  .coderius.attached.bottom.button {
+    border-radius: 0em 0em 0.28571429rem 0.28571429rem;
+  }
+  
+  /* Left / Right */
+  .coderius.left.attached.button {
+    display: inline-block;
+    border-left: none;
+    text-align: right;
+    padding-right: 0.75em;
+    border-radius: 0.28571429rem 0em 0em 0.28571429rem;
+  }
+  .coderius.right.attached.button {
+    display: inline-block;
+    text-align: left;
+    padding-left: 0.75em;
+    border-radius: 0em 0.28571429rem 0.28571429rem 0em;
+  }
+  
+  /* Plural */
+  .coderius.attached.buttons {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-radius: 0em;
+    width: auto !important;
+    z-index: 2;
+    margin-left: -1px;
+    margin-right: -1px;
+  }
+  .coderius.attached.buttons .button {
+    margin: 0em;
+  }
+  .coderius.attached.buttons .button:first-child {
+    border-radius: 0em;
+  }
+  .coderius.attached.buttons .button:last-child {
+    border-radius: 0em;
+  }
+  
+  /* Top / Bottom */
+  .coderius[class*="top attached"].buttons {
+    margin-bottom: -1px;
+    border-radius: 0.28571429rem 0.28571429rem 0em 0em;
+  }
+  .coderius[class*="top attached"].buttons .button:first-child {
+    border-radius: 0.28571429rem 0em 0em 0em;
+  }
+  .coderius[class*="top attached"].buttons .button:last-child {
+    border-radius: 0em 0.28571429rem 0em 0em;
+  }
+  .coderius[class*="bottom attached"].buttons {
+    margin-top: -1px;
+    border-radius: 0em 0em 0.28571429rem 0.28571429rem;
+  }
+  .coderius[class*="bottom attached"].buttons .button:first-child {
+    border-radius: 0em 0em 0em 0.28571429rem;
+  }
+  .coderius[class*="bottom attached"].buttons .button:last-child {
+    border-radius: 0em 0em 0.28571429rem 0em;
+  }
+  
+  /* Left / Right */
+  .coderius[class*="left attached"].buttons {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    margin-right: 0em;
+    margin-left: -1px;
+    border-radius: 0em 0.28571429rem 0.28571429rem 0em;
+  }
+  .coderius[class*="left attached"].buttons .button:first-child {
+    margin-left: -1px;
+    border-radius: 0em 0.28571429rem 0em 0em;
+  }
+  .coderius[class*="left attached"].buttons .button:last-child {
+    margin-left: -1px;
+    border-radius: 0em 0em 0.28571429rem 0em;
+  }
+  .coderius[class*="right attached"].buttons {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    margin-left: 0em;
+    margin-right: -1px;
+    border-radius: 0.28571429rem 0em 0em 0.28571429rem;
+  }
+  .coderius[class*="right attached"].buttons .button:first-child {
+    margin-left: -1px;
+    border-radius: 0.28571429rem 0em 0em 0em;
+  }
+  .coderius[class*="right attached"].buttons .button:last-child {
+    margin-left: -1px;
+    border-radius: 0em 0em 0em 0.28571429rem;
+  }
+  
+  /*-------------------
+          Fluid
+  --------------------*/
+  
+  .coderius.fluid.buttons,
+  .coderius.fluid.button {
+    width: 100%;
+  }
+  .coderius.fluid.button {
+    display: block;
+  }
+  .coderius.two.buttons {
+    width: 100%;
+  }
+  .coderius.two.buttons > .button {
+    width: 50%;
+  }
+  .coderius.three.buttons {
+    width: 100%;
+  }
+  .coderius.three.buttons > .button {
+    width: 33.333%;
+  }
+  .coderius.four.buttons {
+    width: 100%;
+  }
+  .coderius.four.buttons > .button {
+    width: 25%;
+  }
+  .coderius.five.buttons {
+    width: 100%;
+  }
+  .coderius.five.buttons > .button {
+    width: 20%;
+  }
+  .coderius.six.buttons {
+    width: 100%;
+  }
+  .coderius.six.buttons > .button {
+    width: 16.666%;
+  }
+  .coderius.seven.buttons {
+    width: 100%;
+  }
+  .coderius.seven.buttons > .button {
+    width: 14.285%;
+  }
+  .coderius.eight.buttons {
+    width: 100%;
+  }
+  .coderius.eight.buttons > .button {
+    width: 12.5%;
+  }
+  .coderius.nine.buttons {
+    width: 100%;
+  }
+  .coderius.nine.buttons > .button {
+    width: 11.11%;
+  }
+  .coderius.ten.buttons {
+    width: 100%;
+  }
+  .coderius.ten.buttons > .button {
+    width: 10%;
+  }
+  .coderius.eleven.buttons {
+    width: 100%;
+  }
+  .coderius.eleven.buttons > .button {
+    width: 9.09%;
+  }
+  .coderius.twelve.buttons {
+    width: 100%;
+  }
+  .coderius.twelve.buttons > .button {
+    width: 8.3333%;
+  }
+  
+  /* Fluid Vertical Buttons */
+  .coderius.fluid.vertical.buttons,
+  .coderius.fluid.vertical.buttons > .button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: auto;
+  }
+  .coderius.two.vertical.buttons > .button {
+    height: 50%;
+  }
+  .coderius.three.vertical.buttons > .button {
+    height: 33.333%;
+  }
+  .coderius.four.vertical.buttons > .button {
+    height: 25%;
+  }
+  .coderius.five.vertical.buttons > .button {
+    height: 20%;
+  }
+  .coderius.six.vertical.buttons > .button {
+    height: 16.666%;
+  }
+  .coderius.seven.vertical.buttons > .button {
+    height: 14.285%;
+  }
+  .coderius.eight.vertical.buttons > .button {
+    height: 12.5%;
+  }
+  .coderius.nine.vertical.buttons > .button {
+    height: 11.11%;
+  }
+  .coderius.ten.vertical.buttons > .button {
+    height: 10%;
+  }
+  .coderius.eleven.vertical.buttons > .button {
+    height: 9.09%;
+  }
+  .coderius.twelve.vertical.buttons > .button {
+    height: 8.3333%;
+  }
+  
+  /*-------------------
+         Colors
+  --------------------*/
+  
+  
+  /*--- Black ---*/
+  
+  .coderius.black.buttons .button,
+  .coderius.black.button {
+    background-color: #1B1C1D;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+  }
+  .coderius.black.button {
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.black.buttons .button:hover,
+  .coderius.black.button:hover {
+    background-color: #27292a;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.black.buttons .button:focus,
+  .coderius.black.button:focus {
+    background-color: #2f3032;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.black.buttons .button:active,
+  .coderius.black.button:active {
+    background-color: #343637;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.black.buttons .active.button,
+  .coderius.black.buttons .active.button:active,
+  .coderius.black.active.button,
+  .coderius.black.button .active.button:active {
+    background-color: #0f0f10;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Basic */
+  .coderius.basic.black.buttons .button,
+  .coderius.basic.black.button {
+    -webkit-box-shadow: 0px 0px 0px 1px #1B1C1D inset !important;
+            box-shadow: 0px 0px 0px 1px #1B1C1D inset !important;
+    color: #1B1C1D !important;
+  }
+  .coderius.basic.black.buttons .button:hover,
+  .coderius.basic.black.button:hover {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #27292a inset !important;
+            box-shadow: 0px 0px 0px 1px #27292a inset !important;
+    color: #27292a !important;
+  }
+  .coderius.basic.black.buttons .button:focus,
+  .coderius.basic.black.button:focus {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #2f3032 inset !important;
+            box-shadow: 0px 0px 0px 1px #2f3032 inset !important;
+    color: #27292a !important;
+  }
+  .coderius.basic.black.buttons .active.button,
+  .coderius.basic.black.active.button {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #0f0f10 inset !important;
+            box-shadow: 0px 0px 0px 1px #0f0f10 inset !important;
+    color: #343637 !important;
+  }
+  .coderius.basic.black.buttons .button:active,
+  .coderius.basic.black.button:active {
+    -webkit-box-shadow: 0px 0px 0px 1px #343637 inset !important;
+            box-shadow: 0px 0px 0px 1px #343637 inset !important;
+    color: #343637 !important;
+  }
+  .coderius.buttons:not(.vertical) > .basic.black.button:not(:first-child) {
+    margin-left: -1px;
+  }
+  
+  /* Inverted */
+  .coderius.inverted.black.buttons .button,
+  .coderius.inverted.black.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px #D4D4D5 inset !important;
+            box-shadow: 0px 0px 0px 2px #D4D4D5 inset !important;
+    color: #FFFFFF;
+  }
+  .coderius.inverted.black.buttons .button:hover,
+  .coderius.inverted.black.button:hover,
+  .coderius.inverted.black.buttons .button:focus,
+  .coderius.inverted.black.button:focus,
+  .coderius.inverted.black.buttons .button.active,
+  .coderius.inverted.black.button.active,
+  .coderius.inverted.black.buttons .button:active,
+  .coderius.inverted.black.button:active {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    color: #FFFFFF;
+  }
+  .coderius.inverted.black.buttons .button:hover,
+  .coderius.inverted.black.button:hover {
+    background-color: #000000;
+  }
+  .coderius.inverted.black.buttons .button:focus,
+  .coderius.inverted.black.button:focus {
+    background-color: #000000;
+  }
+  .coderius.inverted.black.buttons .active.button,
+  .coderius.inverted.black.active.button {
+    background-color: #000000;
+  }
+  .coderius.inverted.black.buttons .button:active,
+  .coderius.inverted.black.button:active {
+    background-color: #000000;
+  }
+  
+  /* Inverted Basic */
+  .coderius.inverted.black.basic.buttons .button,
+  .coderius.inverted.black.buttons .basic.button,
+  .coderius.inverted.black.basic.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+            box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+    color: #FFFFFF !important;
+  }
+  .coderius.inverted.black.basic.buttons .button:hover,
+  .coderius.inverted.black.buttons .basic.button:hover,
+  .coderius.inverted.black.basic.button:hover {
+    -webkit-box-shadow: 0px 0px 0px 2px #000000 inset !important;
+            box-shadow: 0px 0px 0px 2px #000000 inset !important;
+    color: #FFFFFF !important;
+  }
+  .coderius.inverted.black.basic.buttons .button:focus,
+  .coderius.inverted.black.basic.buttons .button:focus,
+  .coderius.inverted.black.basic.button:focus {
+    -webkit-box-shadow: 0px 0px 0px 2px #000000 inset !important;
+            box-shadow: 0px 0px 0px 2px #000000 inset !important;
+    color: #545454 !important;
+  }
+  .coderius.inverted.black.basic.buttons .active.button,
+  .coderius.inverted.black.buttons .basic.active.button,
+  .coderius.inverted.black.basic.active.button {
+    -webkit-box-shadow: 0px 0px 0px 2px #000000 inset !important;
+            box-shadow: 0px 0px 0px 2px #000000 inset !important;
+    color: #FFFFFF !important;
+  }
+  .coderius.inverted.black.basic.buttons .button:active,
+  .coderius.inverted.black.buttons .basic.button:active,
+  .coderius.inverted.black.basic.button:active {
+    -webkit-box-shadow: 0px 0px 0px 2px #000000 inset !important;
+            box-shadow: 0px 0px 0px 2px #000000 inset !important;
+    color: #FFFFFF !important;
+  }
+  
+  /*--- Grey ---*/
+  
+  .coderius.grey.buttons .button,
+  .coderius.grey.button {
+    background-color: #767676;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+  }
+  .coderius.grey.button {
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.grey.buttons .button:hover,
+  .coderius.grey.button:hover {
+    background-color: #838383;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.grey.buttons .button:focus,
+  .coderius.grey.button:focus {
+    background-color: #8a8a8a;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.grey.buttons .button:active,
+  .coderius.grey.button:active {
+    background-color: #909090;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.grey.buttons .active.button,
+  .coderius.grey.buttons .active.button:active,
+  .coderius.grey.active.button,
+  .coderius.grey.button .active.button:active {
+    background-color: #696969;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Basic */
+  .coderius.basic.grey.buttons .button,
+  .coderius.basic.grey.button {
+    -webkit-box-shadow: 0px 0px 0px 1px #767676 inset !important;
+            box-shadow: 0px 0px 0px 1px #767676 inset !important;
+    color: #767676 !important;
+  }
+  .coderius.basic.grey.buttons .button:hover,
+  .coderius.basic.grey.button:hover {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #838383 inset !important;
+            box-shadow: 0px 0px 0px 1px #838383 inset !important;
+    color: #838383 !important;
+  }
+  .coderius.basic.grey.buttons .button:focus,
+  .coderius.basic.grey.button:focus {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #8a8a8a inset !important;
+            box-shadow: 0px 0px 0px 1px #8a8a8a inset !important;
+    color: #838383 !important;
+  }
+  .coderius.basic.grey.buttons .active.button,
+  .coderius.basic.grey.active.button {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #696969 inset !important;
+            box-shadow: 0px 0px 0px 1px #696969 inset !important;
+    color: #909090 !important;
+  }
+  .coderius.basic.grey.buttons .button:active,
+  .coderius.basic.grey.button:active {
+    -webkit-box-shadow: 0px 0px 0px 1px #909090 inset !important;
+            box-shadow: 0px 0px 0px 1px #909090 inset !important;
+    color: #909090 !important;
+  }
+  .coderius.buttons:not(.vertical) > .basic.grey.button:not(:first-child) {
+    margin-left: -1px;
+  }
+  
+  /* Inverted */
+  .coderius.inverted.grey.buttons .button,
+  .coderius.inverted.grey.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px #D4D4D5 inset !important;
+            box-shadow: 0px 0px 0px 2px #D4D4D5 inset !important;
+    color: #FFFFFF;
+  }
+  .coderius.inverted.grey.buttons .button:hover,
+  .coderius.inverted.grey.button:hover,
+  .coderius.inverted.grey.buttons .button:focus,
+  .coderius.inverted.grey.button:focus,
+  .coderius.inverted.grey.buttons .button.active,
+  .coderius.inverted.grey.button.active,
+  .coderius.inverted.grey.buttons .button:active,
+  .coderius.inverted.grey.button:active {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    color: rgba(0, 0, 0, 0.6);
+  }
+  .coderius.inverted.grey.buttons .button:hover,
+  .coderius.inverted.grey.button:hover {
+    background-color: #cfd0d2;
+  }
+  .coderius.inverted.grey.buttons .button:focus,
+  .coderius.inverted.grey.button:focus {
+    background-color: #c7c9cb;
+  }
+  .coderius.inverted.grey.buttons .active.button,
+  .coderius.inverted.grey.active.button {
+    background-color: #cfd0d2;
+  }
+  .coderius.inverted.grey.buttons .button:active,
+  .coderius.inverted.grey.button:active {
+    background-color: #c2c4c5;
+  }
+  
+  /* Inverted Basic */
+  .coderius.inverted.grey.basic.buttons .button,
+  .coderius.inverted.grey.buttons .basic.button,
+  .coderius.inverted.grey.basic.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+            box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+    color: #FFFFFF !important;
+  }
+  .coderius.inverted.grey.basic.buttons .button:hover,
+  .coderius.inverted.grey.buttons .basic.button:hover,
+  .coderius.inverted.grey.basic.button:hover {
+    -webkit-box-shadow: 0px 0px 0px 2px #cfd0d2 inset !important;
+            box-shadow: 0px 0px 0px 2px #cfd0d2 inset !important;
+    color: #FFFFFF !important;
+  }
+  .coderius.inverted.grey.basic.buttons .button:focus,
+  .coderius.inverted.grey.basic.buttons .button:focus,
+  .coderius.inverted.grey.basic.button:focus {
+    -webkit-box-shadow: 0px 0px 0px 2px #c7c9cb inset !important;
+            box-shadow: 0px 0px 0px 2px #c7c9cb inset !important;
+    color: #DCDDDE !important;
+  }
+  .coderius.inverted.grey.basic.buttons .active.button,
+  .coderius.inverted.grey.buttons .basic.active.button,
+  .coderius.inverted.grey.basic.active.button {
+    -webkit-box-shadow: 0px 0px 0px 2px #cfd0d2 inset !important;
+            box-shadow: 0px 0px 0px 2px #cfd0d2 inset !important;
+    color: #FFFFFF !important;
+  }
+  .coderius.inverted.grey.basic.buttons .button:active,
+  .coderius.inverted.grey.buttons .basic.button:active,
+  .coderius.inverted.grey.basic.button:active {
+    -webkit-box-shadow: 0px 0px 0px 2px #c2c4c5 inset !important;
+            box-shadow: 0px 0px 0px 2px #c2c4c5 inset !important;
+    color: #FFFFFF !important;
+  }
+  
+  /*--- Brown ---*/
+  
+  .coderius.brown.buttons .button,
+  .coderius.brown.button {
+    background-color: #A5673F;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+  }
+  .coderius.brown.button {
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.brown.buttons .button:hover,
+  .coderius.brown.button:hover {
+    background-color: #975b33;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.brown.buttons .button:focus,
+  .coderius.brown.button:focus {
+    background-color: #90532b;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.brown.buttons .button:active,
+  .coderius.brown.button:active {
+    background-color: #805031;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.brown.buttons .active.button,
+  .coderius.brown.buttons .active.button:active,
+  .coderius.brown.active.button,
+  .coderius.brown.button .active.button:active {
+    background-color: #995a31;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Basic */
+  .coderius.basic.brown.buttons .button,
+  .coderius.basic.brown.button {
+    -webkit-box-shadow: 0px 0px 0px 1px #A5673F inset !important;
+            box-shadow: 0px 0px 0px 1px #A5673F inset !important;
+    color: #A5673F !important;
+  }
+  .coderius.basic.brown.buttons .button:hover,
+  .coderius.basic.brown.button:hover {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #975b33 inset !important;
+            box-shadow: 0px 0px 0px 1px #975b33 inset !important;
+    color: #975b33 !important;
+  }
+  .coderius.basic.brown.buttons .button:focus,
+  .coderius.basic.brown.button:focus {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #90532b inset !important;
+            box-shadow: 0px 0px 0px 1px #90532b inset !important;
+    color: #975b33 !important;
+  }
+  .coderius.basic.brown.buttons .active.button,
+  .coderius.basic.brown.active.button {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #995a31 inset !important;
+            box-shadow: 0px 0px 0px 1px #995a31 inset !important;
+    color: #805031 !important;
+  }
+  .coderius.basic.brown.buttons .button:active,
+  .coderius.basic.brown.button:active {
+    -webkit-box-shadow: 0px 0px 0px 1px #805031 inset !important;
+            box-shadow: 0px 0px 0px 1px #805031 inset !important;
+    color: #805031 !important;
+  }
+  .coderius.buttons:not(.vertical) > .basic.brown.button:not(:first-child) {
+    margin-left: -1px;
+  }
+  
+  /* Inverted */
+  .coderius.inverted.brown.buttons .button,
+  .coderius.inverted.brown.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px #D67C1C inset !important;
+            box-shadow: 0px 0px 0px 2px #D67C1C inset !important;
+    color: #D67C1C;
+  }
+  .coderius.inverted.brown.buttons .button:hover,
+  .coderius.inverted.brown.button:hover,
+  .coderius.inverted.brown.buttons .button:focus,
+  .coderius.inverted.brown.button:focus,
+  .coderius.inverted.brown.buttons .button.active,
+  .coderius.inverted.brown.button.active,
+  .coderius.inverted.brown.buttons .button:active,
+  .coderius.inverted.brown.button:active {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    color: #FFFFFF;
+  }
+  .coderius.inverted.brown.buttons .button:hover,
+  .coderius.inverted.brown.button:hover {
+    background-color: #c86f11;
+  }
+  .coderius.inverted.brown.buttons .button:focus,
+  .coderius.inverted.brown.button:focus {
+    background-color: #c16808;
+  }
+  .coderius.inverted.brown.buttons .active.button,
+  .coderius.inverted.brown.active.button {
+    background-color: #cc6f0d;
+  }
+  .coderius.inverted.brown.buttons .button:active,
+  .coderius.inverted.brown.button:active {
+    background-color: #a96216;
+  }
+  
+  /* Inverted Basic */
+  .coderius.inverted.brown.basic.buttons .button,
+  .coderius.inverted.brown.buttons .basic.button,
+  .coderius.inverted.brown.basic.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+            box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+    color: #FFFFFF !important;
+  }
+  .coderius.inverted.brown.basic.buttons .button:hover,
+  .coderius.inverted.brown.buttons .basic.button:hover,
+  .coderius.inverted.brown.basic.button:hover {
+    -webkit-box-shadow: 0px 0px 0px 2px #c86f11 inset !important;
+            box-shadow: 0px 0px 0px 2px #c86f11 inset !important;
+    color: #D67C1C !important;
+  }
+  .coderius.inverted.brown.basic.buttons .button:focus,
+  .coderius.inverted.brown.basic.buttons .button:focus,
+  .coderius.inverted.brown.basic.button:focus {
+    -webkit-box-shadow: 0px 0px 0px 2px #c16808 inset !important;
+            box-shadow: 0px 0px 0px 2px #c16808 inset !important;
+    color: #D67C1C !important;
+  }
+  .coderius.inverted.brown.basic.buttons .active.button,
+  .coderius.inverted.brown.buttons .basic.active.button,
+  .coderius.inverted.brown.basic.active.button {
+    -webkit-box-shadow: 0px 0px 0px 2px #cc6f0d inset !important;
+            box-shadow: 0px 0px 0px 2px #cc6f0d inset !important;
+    color: #D67C1C !important;
+  }
+  .coderius.inverted.brown.basic.buttons .button:active,
+  .coderius.inverted.brown.buttons .basic.button:active,
+  .coderius.inverted.brown.basic.button:active {
+    -webkit-box-shadow: 0px 0px 0px 2px #a96216 inset !important;
+            box-shadow: 0px 0px 0px 2px #a96216 inset !important;
+    color: #D67C1C !important;
+  }
+  
+  /*--- Blue ---*/
+  
+  .coderius.blue.buttons .button,
+  .coderius.blue.button {
+    background-color: #2185D0;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+  }
+  .coderius.blue.button {
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.blue.buttons .button:hover,
+  .coderius.blue.button:hover {
+    background-color: #1678c2;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.blue.buttons .button:focus,
+  .coderius.blue.button:focus {
+    background-color: #0d71bb;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.blue.buttons .button:active,
+  .coderius.blue.button:active {
+    background-color: #1a69a4;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.blue.buttons .active.button,
+  .coderius.blue.buttons .active.button:active,
+  .coderius.blue.active.button,
+  .coderius.blue.button .active.button:active {
+    background-color: #1279c6;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Basic */
+  .coderius.basic.blue.buttons .button,
+  .coderius.basic.blue.button {
+    -webkit-box-shadow: 0px 0px 0px 1px #2185D0 inset !important;
+            box-shadow: 0px 0px 0px 1px #2185D0 inset !important;
+    color: #2185D0 !important;
+  }
+  .coderius.basic.blue.buttons .button:hover,
+  .coderius.basic.blue.button:hover {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #1678c2 inset !important;
+            box-shadow: 0px 0px 0px 1px #1678c2 inset !important;
+    color: #1678c2 !important;
+  }
+  .coderius.basic.blue.buttons .button:focus,
+  .coderius.basic.blue.button:focus {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #0d71bb inset !important;
+            box-shadow: 0px 0px 0px 1px #0d71bb inset !important;
+    color: #1678c2 !important;
+  }
+  .coderius.basic.blue.buttons .active.button,
+  .coderius.basic.blue.active.button {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #1279c6 inset !important;
+            box-shadow: 0px 0px 0px 1px #1279c6 inset !important;
+    color: #1a69a4 !important;
+  }
+  .coderius.basic.blue.buttons .button:active,
+  .coderius.basic.blue.button:active {
+    -webkit-box-shadow: 0px 0px 0px 1px #1a69a4 inset !important;
+            box-shadow: 0px 0px 0px 1px #1a69a4 inset !important;
+    color: #1a69a4 !important;
+  }
+  .coderius.buttons:not(.vertical) > .basic.blue.button:not(:first-child) {
+    margin-left: -1px;
+  }
+  
+  /* Inverted */
+  .coderius.inverted.blue.buttons .button,
+  .coderius.inverted.blue.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px #54C8FF inset !important;
+            box-shadow: 0px 0px 0px 2px #54C8FF inset !important;
+    color: #54C8FF;
+  }
+  .coderius.inverted.blue.buttons .button:hover,
+  .coderius.inverted.blue.button:hover,
+  .coderius.inverted.blue.buttons .button:focus,
+  .coderius.inverted.blue.button:focus,
+  .coderius.inverted.blue.buttons .button.active,
+  .coderius.inverted.blue.button.active,
+  .coderius.inverted.blue.buttons .button:active,
+  .coderius.inverted.blue.button:active {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    color: #FFFFFF;
+  }
+  .coderius.inverted.blue.buttons .button:hover,
+  .coderius.inverted.blue.button:hover {
+    background-color: #3ac0ff;
+  }
+  .coderius.inverted.blue.buttons .button:focus,
+  .coderius.inverted.blue.button:focus {
+    background-color: #2bbbff;
+  }
+  .coderius.inverted.blue.buttons .active.button,
+  .coderius.inverted.blue.active.button {
+    background-color: #3ac0ff;
+  }
+  .coderius.inverted.blue.buttons .button:active,
+  .coderius.inverted.blue.button:active {
+    background-color: #21b8ff;
+  }
+  
+  /* Inverted Basic */
+  .coderius.inverted.blue.basic.buttons .button,
+  .coderius.inverted.blue.buttons .basic.button,
+  .coderius.inverted.blue.basic.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+            box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+    color: #FFFFFF !important;
+  }
+  .coderius.inverted.blue.basic.buttons .button:hover,
+  .coderius.inverted.blue.buttons .basic.button:hover,
+  .coderius.inverted.blue.basic.button:hover {
+    -webkit-box-shadow: 0px 0px 0px 2px #3ac0ff inset !important;
+            box-shadow: 0px 0px 0px 2px #3ac0ff inset !important;
+    color: #54C8FF !important;
+  }
+  .coderius.inverted.blue.basic.buttons .button:focus,
+  .coderius.inverted.blue.basic.buttons .button:focus,
+  .coderius.inverted.blue.basic.button:focus {
+    -webkit-box-shadow: 0px 0px 0px 2px #2bbbff inset !important;
+            box-shadow: 0px 0px 0px 2px #2bbbff inset !important;
+    color: #54C8FF !important;
+  }
+  .coderius.inverted.blue.basic.buttons .active.button,
+  .coderius.inverted.blue.buttons .basic.active.button,
+  .coderius.inverted.blue.basic.active.button {
+    -webkit-box-shadow: 0px 0px 0px 2px #3ac0ff inset !important;
+            box-shadow: 0px 0px 0px 2px #3ac0ff inset !important;
+    color: #54C8FF !important;
+  }
+  .coderius.inverted.blue.basic.buttons .button:active,
+  .coderius.inverted.blue.buttons .basic.button:active,
+  .coderius.inverted.blue.basic.button:active {
+    -webkit-box-shadow: 0px 0px 0px 2px #21b8ff inset !important;
+            box-shadow: 0px 0px 0px 2px #21b8ff inset !important;
+    color: #54C8FF !important;
+  }
+  
+  /*--- Green ---*/
+  
+  .coderius.green.buttons .button,
+  .coderius.green.button {
+    background-color: #21BA45;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+  }
+  .coderius.green.button {
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.green.buttons .button:hover,
+  .coderius.green.button:hover {
+    background-color: #16ab39;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.green.buttons .button:focus,
+  .coderius.green.button:focus {
+    background-color: #0ea432;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.green.buttons .button:active,
+  .coderius.green.button:active {
+    background-color: #198f35;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.green.buttons .active.button,
+  .coderius.green.buttons .active.button:active,
+  .coderius.green.active.button,
+  .coderius.green.button .active.button:active {
+    background-color: #13ae38;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Basic */
+  .coderius.basic.green.buttons .button,
+  .coderius.basic.green.button {
+    -webkit-box-shadow: 0px 0px 0px 1px #21BA45 inset !important;
+            box-shadow: 0px 0px 0px 1px #21BA45 inset !important;
+    color: #21BA45 !important;
+  }
+  .coderius.basic.green.buttons .button:hover,
+  .coderius.basic.green.button:hover {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #16ab39 inset !important;
+            box-shadow: 0px 0px 0px 1px #16ab39 inset !important;
+    color: #16ab39 !important;
+  }
+  .coderius.basic.green.buttons .button:focus,
+  .coderius.basic.green.button:focus {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #0ea432 inset !important;
+            box-shadow: 0px 0px 0px 1px #0ea432 inset !important;
+    color: #16ab39 !important;
+  }
+  .coderius.basic.green.buttons .active.button,
+  .coderius.basic.green.active.button {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #13ae38 inset !important;
+            box-shadow: 0px 0px 0px 1px #13ae38 inset !important;
+    color: #198f35 !important;
+  }
+  .coderius.basic.green.buttons .button:active,
+  .coderius.basic.green.button:active {
+    -webkit-box-shadow: 0px 0px 0px 1px #198f35 inset !important;
+            box-shadow: 0px 0px 0px 1px #198f35 inset !important;
+    color: #198f35 !important;
+  }
+  .coderius.buttons:not(.vertical) > .basic.green.button:not(:first-child) {
+    margin-left: -1px;
+  }
+  
+  /* Inverted */
+  .coderius.inverted.green.buttons .button,
+  .coderius.inverted.green.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px #2ECC40 inset !important;
+            box-shadow: 0px 0px 0px 2px #2ECC40 inset !important;
+    color: #2ECC40;
+  }
+  .coderius.inverted.green.buttons .button:hover,
+  .coderius.inverted.green.button:hover,
+  .coderius.inverted.green.buttons .button:focus,
+  .coderius.inverted.green.button:focus,
+  .coderius.inverted.green.buttons .button.active,
+  .coderius.inverted.green.button.active,
+  .coderius.inverted.green.buttons .button:active,
+  .coderius.inverted.green.button:active {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    color: #FFFFFF;
+  }
+  .coderius.inverted.green.buttons .button:hover,
+  .coderius.inverted.green.button:hover {
+    background-color: #22be34;
+  }
+  .coderius.inverted.green.buttons .button:focus,
+  .coderius.inverted.green.button:focus {
+    background-color: #19b82b;
+  }
+  .coderius.inverted.green.buttons .active.button,
+  .coderius.inverted.green.active.button {
+    background-color: #1fc231;
+  }
+  .coderius.inverted.green.buttons .button:active,
+  .coderius.inverted.green.button:active {
+    background-color: #25a233;
+  }
+  
+  /* Inverted Basic */
+  .coderius.inverted.green.basic.buttons .button,
+  .coderius.inverted.green.buttons .basic.button,
+  .coderius.inverted.green.basic.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+            box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+    color: #FFFFFF !important;
+  }
+  .coderius.inverted.green.basic.buttons .button:hover,
+  .coderius.inverted.green.buttons .basic.button:hover,
+  .coderius.inverted.green.basic.button:hover {
+    -webkit-box-shadow: 0px 0px 0px 2px #22be34 inset !important;
+            box-shadow: 0px 0px 0px 2px #22be34 inset !important;
+    color: #2ECC40 !important;
+  }
+  .coderius.inverted.green.basic.buttons .button:focus,
+  .coderius.inverted.green.basic.buttons .button:focus,
+  .coderius.inverted.green.basic.button:focus {
+    -webkit-box-shadow: 0px 0px 0px 2px #19b82b inset !important;
+            box-shadow: 0px 0px 0px 2px #19b82b inset !important;
+    color: #2ECC40 !important;
+  }
+  .coderius.inverted.green.basic.buttons .active.button,
+  .coderius.inverted.green.buttons .basic.active.button,
+  .coderius.inverted.green.basic.active.button {
+    -webkit-box-shadow: 0px 0px 0px 2px #1fc231 inset !important;
+            box-shadow: 0px 0px 0px 2px #1fc231 inset !important;
+    color: #2ECC40 !important;
+  }
+  .coderius.inverted.green.basic.buttons .button:active,
+  .coderius.inverted.green.buttons .basic.button:active,
+  .coderius.inverted.green.basic.button:active {
+    -webkit-box-shadow: 0px 0px 0px 2px #25a233 inset !important;
+            box-shadow: 0px 0px 0px 2px #25a233 inset !important;
+    color: #2ECC40 !important;
+  }
+  
+  /*--- Orange ---*/
+  
+  .coderius.orange.buttons .button,
+  .coderius.orange.button {
+    background-color: #F2711C;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+  }
+  .coderius.orange.button {
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.orange.buttons .button:hover,
+  .coderius.orange.button:hover {
+    background-color: #f26202;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.orange.buttons .button:focus,
+  .coderius.orange.button:focus {
+    background-color: #e55b00;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.orange.buttons .button:active,
+  .coderius.orange.button:active {
+    background-color: #cf590c;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.orange.buttons .active.button,
+  .coderius.orange.buttons .active.button:active,
+  .coderius.orange.active.button,
+  .coderius.orange.button .active.button:active {
+    background-color: #f56100;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Basic */
+  .coderius.basic.orange.buttons .button,
+  .coderius.basic.orange.button {
+    -webkit-box-shadow: 0px 0px 0px 1px #F2711C inset !important;
+            box-shadow: 0px 0px 0px 1px #F2711C inset !important;
+    color: #F2711C !important;
+  }
+  .coderius.basic.orange.buttons .button:hover,
+  .coderius.basic.orange.button:hover {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #f26202 inset !important;
+            box-shadow: 0px 0px 0px 1px #f26202 inset !important;
+    color: #f26202 !important;
+  }
+  .coderius.basic.orange.buttons .button:focus,
+  .coderius.basic.orange.button:focus {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #e55b00 inset !important;
+            box-shadow: 0px 0px 0px 1px #e55b00 inset !important;
+    color: #f26202 !important;
+  }
+  .coderius.basic.orange.buttons .active.button,
+  .coderius.basic.orange.active.button {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #f56100 inset !important;
+            box-shadow: 0px 0px 0px 1px #f56100 inset !important;
+    color: #cf590c !important;
+  }
+  .coderius.basic.orange.buttons .button:active,
+  .coderius.basic.orange.button:active {
+    -webkit-box-shadow: 0px 0px 0px 1px #cf590c inset !important;
+            box-shadow: 0px 0px 0px 1px #cf590c inset !important;
+    color: #cf590c !important;
+  }
+  .coderius.buttons:not(.vertical) > .basic.orange.button:not(:first-child) {
+    margin-left: -1px;
+  }
+  
+  /* Inverted */
+  .coderius.inverted.orange.buttons .button,
+  .coderius.inverted.orange.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px #FF851B inset !important;
+            box-shadow: 0px 0px 0px 2px #FF851B inset !important;
+    color: #FF851B;
+  }
+  .coderius.inverted.orange.buttons .button:hover,
+  .coderius.inverted.orange.button:hover,
+  .coderius.inverted.orange.buttons .button:focus,
+  .coderius.inverted.orange.button:focus,
+  .coderius.inverted.orange.buttons .button.active,
+  .coderius.inverted.orange.button.active,
+  .coderius.inverted.orange.buttons .button:active,
+  .coderius.inverted.orange.button:active {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    color: #FFFFFF;
+  }
+  .coderius.inverted.orange.buttons .button:hover,
+  .coderius.inverted.orange.button:hover {
+    background-color: #ff7701;
+  }
+  .coderius.inverted.orange.buttons .button:focus,
+  .coderius.inverted.orange.button:focus {
+    background-color: #f17000;
+  }
+  .coderius.inverted.orange.buttons .active.button,
+  .coderius.inverted.orange.active.button {
+    background-color: #ff7701;
+  }
+  .coderius.inverted.orange.buttons .button:active,
+  .coderius.inverted.orange.button:active {
+    background-color: #e76b00;
+  }
+  
+  /* Inverted Basic */
+  .coderius.inverted.orange.basic.buttons .button,
+  .coderius.inverted.orange.buttons .basic.button,
+  .coderius.inverted.orange.basic.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+            box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+    color: #FFFFFF !important;
+  }
+  .coderius.inverted.orange.basic.buttons .button:hover,
+  .coderius.inverted.orange.buttons .basic.button:hover,
+  .coderius.inverted.orange.basic.button:hover {
+    -webkit-box-shadow: 0px 0px 0px 2px #ff7701 inset !important;
+            box-shadow: 0px 0px 0px 2px #ff7701 inset !important;
+    color: #FF851B !important;
+  }
+  .coderius.inverted.orange.basic.buttons .button:focus,
+  .coderius.inverted.orange.basic.buttons .button:focus,
+  .coderius.inverted.orange.basic.button:focus {
+    -webkit-box-shadow: 0px 0px 0px 2px #f17000 inset !important;
+            box-shadow: 0px 0px 0px 2px #f17000 inset !important;
+    color: #FF851B !important;
+  }
+  .coderius.inverted.orange.basic.buttons .active.button,
+  .coderius.inverted.orange.buttons .basic.active.button,
+  .coderius.inverted.orange.basic.active.button {
+    -webkit-box-shadow: 0px 0px 0px 2px #ff7701 inset !important;
+            box-shadow: 0px 0px 0px 2px #ff7701 inset !important;
+    color: #FF851B !important;
+  }
+  .coderius.inverted.orange.basic.buttons .button:active,
+  .coderius.inverted.orange.buttons .basic.button:active,
+  .coderius.inverted.orange.basic.button:active {
+    -webkit-box-shadow: 0px 0px 0px 2px #e76b00 inset !important;
+            box-shadow: 0px 0px 0px 2px #e76b00 inset !important;
+    color: #FF851B !important;
+  }
+  
+  /*--- Pink ---*/
+  
+  .coderius.pink.buttons .button,
+  .coderius.pink.button {
+    background-color: #E03997;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+  }
+  .coderius.pink.button {
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.pink.buttons .button:hover,
+  .coderius.pink.button:hover {
+    background-color: #e61a8d;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.pink.buttons .button:focus,
+  .coderius.pink.button:focus {
+    background-color: #e10f85;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.pink.buttons .button:active,
+  .coderius.pink.button:active {
+    background-color: #c71f7e;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.pink.buttons .active.button,
+  .coderius.pink.buttons .active.button:active,
+  .coderius.pink.active.button,
+  .coderius.pink.button .active.button:active {
+    background-color: #ea158d;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Basic */
+  .coderius.basic.pink.buttons .button,
+  .coderius.basic.pink.button {
+    -webkit-box-shadow: 0px 0px 0px 1px #E03997 inset !important;
+            box-shadow: 0px 0px 0px 1px #E03997 inset !important;
+    color: #E03997 !important;
+  }
+  .coderius.basic.pink.buttons .button:hover,
+  .coderius.basic.pink.button:hover {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #e61a8d inset !important;
+            box-shadow: 0px 0px 0px 1px #e61a8d inset !important;
+    color: #e61a8d !important;
+  }
+  .coderius.basic.pink.buttons .button:focus,
+  .coderius.basic.pink.button:focus {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #e10f85 inset !important;
+            box-shadow: 0px 0px 0px 1px #e10f85 inset !important;
+    color: #e61a8d !important;
+  }
+  .coderius.basic.pink.buttons .active.button,
+  .coderius.basic.pink.active.button {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #ea158d inset !important;
+            box-shadow: 0px 0px 0px 1px #ea158d inset !important;
+    color: #c71f7e !important;
+  }
+  .coderius.basic.pink.buttons .button:active,
+  .coderius.basic.pink.button:active {
+    -webkit-box-shadow: 0px 0px 0px 1px #c71f7e inset !important;
+            box-shadow: 0px 0px 0px 1px #c71f7e inset !important;
+    color: #c71f7e !important;
+  }
+  .coderius.buttons:not(.vertical) > .basic.pink.button:not(:first-child) {
+    margin-left: -1px;
+  }
+  
+  /* Inverted */
+  .coderius.inverted.pink.buttons .button,
+  .coderius.inverted.pink.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px #FF8EDF inset !important;
+            box-shadow: 0px 0px 0px 2px #FF8EDF inset !important;
+    color: #FF8EDF;
+  }
+  .coderius.inverted.pink.buttons .button:hover,
+  .coderius.inverted.pink.button:hover,
+  .coderius.inverted.pink.buttons .button:focus,
+  .coderius.inverted.pink.button:focus,
+  .coderius.inverted.pink.buttons .button.active,
+  .coderius.inverted.pink.button.active,
+  .coderius.inverted.pink.buttons .button:active,
+  .coderius.inverted.pink.button:active {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    color: #FFFFFF;
+  }
+  .coderius.inverted.pink.buttons .button:hover,
+  .coderius.inverted.pink.button:hover {
+    background-color: #ff74d8;
+  }
+  .coderius.inverted.pink.buttons .button:focus,
+  .coderius.inverted.pink.button:focus {
+    background-color: #ff65d3;
+  }
+  .coderius.inverted.pink.buttons .active.button,
+  .coderius.inverted.pink.active.button {
+    background-color: #ff74d8;
+  }
+  .coderius.inverted.pink.buttons .button:active,
+  .coderius.inverted.pink.button:active {
+    background-color: #ff5bd1;
+  }
+  
+  /* Inverted Basic */
+  .coderius.inverted.pink.basic.buttons .button,
+  .coderius.inverted.pink.buttons .basic.button,
+  .coderius.inverted.pink.basic.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+            box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+    color: #FFFFFF !important;
+  }
+  .coderius.inverted.pink.basic.buttons .button:hover,
+  .coderius.inverted.pink.buttons .basic.button:hover,
+  .coderius.inverted.pink.basic.button:hover {
+    -webkit-box-shadow: 0px 0px 0px 2px #ff74d8 inset !important;
+            box-shadow: 0px 0px 0px 2px #ff74d8 inset !important;
+    color: #FF8EDF !important;
+  }
+  .coderius.inverted.pink.basic.buttons .button:focus,
+  .coderius.inverted.pink.basic.buttons .button:focus,
+  .coderius.inverted.pink.basic.button:focus {
+    -webkit-box-shadow: 0px 0px 0px 2px #ff65d3 inset !important;
+            box-shadow: 0px 0px 0px 2px #ff65d3 inset !important;
+    color: #FF8EDF !important;
+  }
+  .coderius.inverted.pink.basic.buttons .active.button,
+  .coderius.inverted.pink.buttons .basic.active.button,
+  .coderius.inverted.pink.basic.active.button {
+    -webkit-box-shadow: 0px 0px 0px 2px #ff74d8 inset !important;
+            box-shadow: 0px 0px 0px 2px #ff74d8 inset !important;
+    color: #FF8EDF !important;
+  }
+  .coderius.inverted.pink.basic.buttons .button:active,
+  .coderius.inverted.pink.buttons .basic.button:active,
+  .coderius.inverted.pink.basic.button:active {
+    -webkit-box-shadow: 0px 0px 0px 2px #ff5bd1 inset !important;
+            box-shadow: 0px 0px 0px 2px #ff5bd1 inset !important;
+    color: #FF8EDF !important;
+  }
+  
+  /*--- Violet ---*/
+  
+  .coderius.violet.buttons .button,
+  .coderius.violet.button {
+    background-color: #6435C9;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+  }
+  .coderius.violet.button {
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.violet.buttons .button:hover,
+  .coderius.violet.button:hover {
+    background-color: #5829bb;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.violet.buttons .button:focus,
+  .coderius.violet.button:focus {
+    background-color: #4f20b5;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.violet.buttons .button:active,
+  .coderius.violet.button:active {
+    background-color: #502aa1;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.violet.buttons .active.button,
+  .coderius.violet.buttons .active.button:active,
+  .coderius.violet.active.button,
+  .coderius.violet.button .active.button:active {
+    background-color: #5626bf;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Basic */
+  .coderius.basic.violet.buttons .button,
+  .coderius.basic.violet.button {
+    -webkit-box-shadow: 0px 0px 0px 1px #6435C9 inset !important;
+            box-shadow: 0px 0px 0px 1px #6435C9 inset !important;
+    color: #6435C9 !important;
+  }
+  .coderius.basic.violet.buttons .button:hover,
+  .coderius.basic.violet.button:hover {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #5829bb inset !important;
+            box-shadow: 0px 0px 0px 1px #5829bb inset !important;
+    color: #5829bb !important;
+  }
+  .coderius.basic.violet.buttons .button:focus,
+  .coderius.basic.violet.button:focus {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #4f20b5 inset !important;
+            box-shadow: 0px 0px 0px 1px #4f20b5 inset !important;
+    color: #5829bb !important;
+  }
+  .coderius.basic.violet.buttons .active.button,
+  .coderius.basic.violet.active.button {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #5626bf inset !important;
+            box-shadow: 0px 0px 0px 1px #5626bf inset !important;
+    color: #502aa1 !important;
+  }
+  .coderius.basic.violet.buttons .button:active,
+  .coderius.basic.violet.button:active {
+    -webkit-box-shadow: 0px 0px 0px 1px #502aa1 inset !important;
+            box-shadow: 0px 0px 0px 1px #502aa1 inset !important;
+    color: #502aa1 !important;
+  }
+  .coderius.buttons:not(.vertical) > .basic.violet.button:not(:first-child) {
+    margin-left: -1px;
+  }
+  
+  /* Inverted */
+  .coderius.inverted.violet.buttons .button,
+  .coderius.inverted.violet.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px #A291FB inset !important;
+            box-shadow: 0px 0px 0px 2px #A291FB inset !important;
+    color: #A291FB;
+  }
+  .coderius.inverted.violet.buttons .button:hover,
+  .coderius.inverted.violet.button:hover,
+  .coderius.inverted.violet.buttons .button:focus,
+  .coderius.inverted.violet.button:focus,
+  .coderius.inverted.violet.buttons .button.active,
+  .coderius.inverted.violet.button.active,
+  .coderius.inverted.violet.buttons .button:active,
+  .coderius.inverted.violet.button:active {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    color: #FFFFFF;
+  }
+  .coderius.inverted.violet.buttons .button:hover,
+  .coderius.inverted.violet.button:hover {
+    background-color: #8a73ff;
+  }
+  .coderius.inverted.violet.buttons .button:focus,
+  .coderius.inverted.violet.button:focus {
+    background-color: #7d64ff;
+  }
+  .coderius.inverted.violet.buttons .active.button,
+  .coderius.inverted.violet.active.button {
+    background-color: #8a73ff;
+  }
+  .coderius.inverted.violet.buttons .button:active,
+  .coderius.inverted.violet.button:active {
+    background-color: #7860f9;
+  }
+  
+  /* Inverted Basic */
+  .coderius.inverted.violet.basic.buttons .button,
+  .coderius.inverted.violet.buttons .basic.button,
+  .coderius.inverted.violet.basic.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+            box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+    color: #FFFFFF !important;
+  }
+  .coderius.inverted.violet.basic.buttons .button:hover,
+  .coderius.inverted.violet.buttons .basic.button:hover,
+  .coderius.inverted.violet.basic.button:hover {
+    -webkit-box-shadow: 0px 0px 0px 2px #8a73ff inset !important;
+            box-shadow: 0px 0px 0px 2px #8a73ff inset !important;
+    color: #A291FB !important;
+  }
+  .coderius.inverted.violet.basic.buttons .button:focus,
+  .coderius.inverted.violet.basic.buttons .button:focus,
+  .coderius.inverted.violet.basic.button:focus {
+    -webkit-box-shadow: 0px 0px 0px 2px #7d64ff inset !important;
+            box-shadow: 0px 0px 0px 2px #7d64ff inset !important;
+    color: #A291FB !important;
+  }
+  .coderius.inverted.violet.basic.buttons .active.button,
+  .coderius.inverted.violet.buttons .basic.active.button,
+  .coderius.inverted.violet.basic.active.button {
+    -webkit-box-shadow: 0px 0px 0px 2px #8a73ff inset !important;
+            box-shadow: 0px 0px 0px 2px #8a73ff inset !important;
+    color: #A291FB !important;
+  }
+  .coderius.inverted.violet.basic.buttons .button:active,
+  .coderius.inverted.violet.buttons .basic.button:active,
+  .coderius.inverted.violet.basic.button:active {
+    -webkit-box-shadow: 0px 0px 0px 2px #7860f9 inset !important;
+            box-shadow: 0px 0px 0px 2px #7860f9 inset !important;
+    color: #A291FB !important;
+  }
+  
+  /*--- Purple ---*/
+  
+  .coderius.purple.buttons .button,
+  .coderius.purple.button {
+    background-color: #A333C8;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+  }
+  .coderius.purple.button {
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.purple.buttons .button:hover,
+  .coderius.purple.button:hover {
+    background-color: #9627ba;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.purple.buttons .button:focus,
+  .coderius.purple.button:focus {
+    background-color: #8f1eb4;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.purple.buttons .button:active,
+  .coderius.purple.button:active {
+    background-color: #82299f;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.purple.buttons .active.button,
+  .coderius.purple.buttons .active.button:active,
+  .coderius.purple.active.button,
+  .coderius.purple.button .active.button:active {
+    background-color: #9724be;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Basic */
+  .coderius.basic.purple.buttons .button,
+  .coderius.basic.purple.button {
+    -webkit-box-shadow: 0px 0px 0px 1px #A333C8 inset !important;
+            box-shadow: 0px 0px 0px 1px #A333C8 inset !important;
+    color: #A333C8 !important;
+  }
+  .coderius.basic.purple.buttons .button:hover,
+  .coderius.basic.purple.button:hover {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #9627ba inset !important;
+            box-shadow: 0px 0px 0px 1px #9627ba inset !important;
+    color: #9627ba !important;
+  }
+  .coderius.basic.purple.buttons .button:focus,
+  .coderius.basic.purple.button:focus {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #8f1eb4 inset !important;
+            box-shadow: 0px 0px 0px 1px #8f1eb4 inset !important;
+    color: #9627ba !important;
+  }
+  .coderius.basic.purple.buttons .active.button,
+  .coderius.basic.purple.active.button {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #9724be inset !important;
+            box-shadow: 0px 0px 0px 1px #9724be inset !important;
+    color: #82299f !important;
+  }
+  .coderius.basic.purple.buttons .button:active,
+  .coderius.basic.purple.button:active {
+    -webkit-box-shadow: 0px 0px 0px 1px #82299f inset !important;
+            box-shadow: 0px 0px 0px 1px #82299f inset !important;
+    color: #82299f !important;
+  }
+  .coderius.buttons:not(.vertical) > .basic.purple.button:not(:first-child) {
+    margin-left: -1px;
+  }
+  
+  /* Inverted */
+  .coderius.inverted.purple.buttons .button,
+  .coderius.inverted.purple.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px #DC73FF inset !important;
+            box-shadow: 0px 0px 0px 2px #DC73FF inset !important;
+    color: #DC73FF;
+  }
+  .coderius.inverted.purple.buttons .button:hover,
+  .coderius.inverted.purple.button:hover,
+  .coderius.inverted.purple.buttons .button:focus,
+  .coderius.inverted.purple.button:focus,
+  .coderius.inverted.purple.buttons .button.active,
+  .coderius.inverted.purple.button.active,
+  .coderius.inverted.purple.buttons .button:active,
+  .coderius.inverted.purple.button:active {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    color: #FFFFFF;
+  }
+  .coderius.inverted.purple.buttons .button:hover,
+  .coderius.inverted.purple.button:hover {
+    background-color: #d65aff;
+  }
+  .coderius.inverted.purple.buttons .button:focus,
+  .coderius.inverted.purple.button:focus {
+    background-color: #d24aff;
+  }
+  .coderius.inverted.purple.buttons .active.button,
+  .coderius.inverted.purple.active.button {
+    background-color: #d65aff;
+  }
+  .coderius.inverted.purple.buttons .button:active,
+  .coderius.inverted.purple.button:active {
+    background-color: #cf40ff;
+  }
+  
+  /* Inverted Basic */
+  .coderius.inverted.purple.basic.buttons .button,
+  .coderius.inverted.purple.buttons .basic.button,
+  .coderius.inverted.purple.basic.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+            box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+    color: #FFFFFF !important;
+  }
+  .coderius.inverted.purple.basic.buttons .button:hover,
+  .coderius.inverted.purple.buttons .basic.button:hover,
+  .coderius.inverted.purple.basic.button:hover {
+    -webkit-box-shadow: 0px 0px 0px 2px #d65aff inset !important;
+            box-shadow: 0px 0px 0px 2px #d65aff inset !important;
+    color: #DC73FF !important;
+  }
+  .coderius.inverted.purple.basic.buttons .button:focus,
+  .coderius.inverted.purple.basic.buttons .button:focus,
+  .coderius.inverted.purple.basic.button:focus {
+    -webkit-box-shadow: 0px 0px 0px 2px #d24aff inset !important;
+            box-shadow: 0px 0px 0px 2px #d24aff inset !important;
+    color: #DC73FF !important;
+  }
+  .coderius.inverted.purple.basic.buttons .active.button,
+  .coderius.inverted.purple.buttons .basic.active.button,
+  .coderius.inverted.purple.basic.active.button {
+    -webkit-box-shadow: 0px 0px 0px 2px #d65aff inset !important;
+            box-shadow: 0px 0px 0px 2px #d65aff inset !important;
+    color: #DC73FF !important;
+  }
+  .coderius.inverted.purple.basic.buttons .button:active,
+  .coderius.inverted.purple.buttons .basic.button:active,
+  .coderius.inverted.purple.basic.button:active {
+    -webkit-box-shadow: 0px 0px 0px 2px #cf40ff inset !important;
+            box-shadow: 0px 0px 0px 2px #cf40ff inset !important;
+    color: #DC73FF !important;
+  }
+  
+  /*--- Red ---*/
+  
+  .coderius.red.buttons .button,
+  .coderius.red.button {
+    background-color: #DB2828;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+  }
+  .coderius.red.button {
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.red.buttons .button:hover,
+  .coderius.red.button:hover {
+    background-color: #d01919;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.red.buttons .button:focus,
+  .coderius.red.button:focus {
+    background-color: #ca1010;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.red.buttons .button:active,
+  .coderius.red.button:active {
+    background-color: #b21e1e;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.red.buttons .active.button,
+  .coderius.red.buttons .active.button:active,
+  .coderius.red.active.button,
+  .coderius.red.button .active.button:active {
+    background-color: #d41515;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Basic */
+  .coderius.basic.red.buttons .button,
+  .coderius.basic.red.button {
+    -webkit-box-shadow: 0px 0px 0px 1px #DB2828 inset !important;
+            box-shadow: 0px 0px 0px 1px #DB2828 inset !important;
+    color: #DB2828 !important;
+  }
+  .coderius.basic.red.buttons .button:hover,
+  .coderius.basic.red.button:hover {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #d01919 inset !important;
+            box-shadow: 0px 0px 0px 1px #d01919 inset !important;
+    color: #d01919 !important;
+  }
+  .coderius.basic.red.buttons .button:focus,
+  .coderius.basic.red.button:focus {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #ca1010 inset !important;
+            box-shadow: 0px 0px 0px 1px #ca1010 inset !important;
+    color: #d01919 !important;
+  }
+  .coderius.basic.red.buttons .active.button,
+  .coderius.basic.red.active.button {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #d41515 inset !important;
+            box-shadow: 0px 0px 0px 1px #d41515 inset !important;
+    color: #b21e1e !important;
+  }
+  .coderius.basic.red.buttons .button:active,
+  .coderius.basic.red.button:active {
+    -webkit-box-shadow: 0px 0px 0px 1px #b21e1e inset !important;
+            box-shadow: 0px 0px 0px 1px #b21e1e inset !important;
+    color: #b21e1e !important;
+  }
+  .coderius.buttons:not(.vertical) > .basic.red.button:not(:first-child) {
+    margin-left: -1px;
+  }
+  
+  /* Inverted */
+  .coderius.inverted.red.buttons .button,
+  .coderius.inverted.red.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px #FF695E inset !important;
+            box-shadow: 0px 0px 0px 2px #FF695E inset !important;
+    color: #FF695E;
+  }
+  .coderius.inverted.red.buttons .button:hover,
+  .coderius.inverted.red.button:hover,
+  .coderius.inverted.red.buttons .button:focus,
+  .coderius.inverted.red.button:focus,
+  .coderius.inverted.red.buttons .button.active,
+  .coderius.inverted.red.button.active,
+  .coderius.inverted.red.buttons .button:active,
+  .coderius.inverted.red.button:active {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    color: #FFFFFF;
+  }
+  .coderius.inverted.red.buttons .button:hover,
+  .coderius.inverted.red.button:hover {
+    background-color: #ff5144;
+  }
+  .coderius.inverted.red.buttons .button:focus,
+  .coderius.inverted.red.button:focus {
+    background-color: #ff4335;
+  }
+  .coderius.inverted.red.buttons .active.button,
+  .coderius.inverted.red.active.button {
+    background-color: #ff5144;
+  }
+  .coderius.inverted.red.buttons .button:active,
+  .coderius.inverted.red.button:active {
+    background-color: #ff392b;
+  }
+  
+  /* Inverted Basic */
+  .coderius.inverted.red.basic.buttons .button,
+  .coderius.inverted.red.buttons .basic.button,
+  .coderius.inverted.red.basic.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+            box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+    color: #FFFFFF !important;
+  }
+  .coderius.inverted.red.basic.buttons .button:hover,
+  .coderius.inverted.red.buttons .basic.button:hover,
+  .coderius.inverted.red.basic.button:hover {
+    -webkit-box-shadow: 0px 0px 0px 2px #ff5144 inset !important;
+            box-shadow: 0px 0px 0px 2px #ff5144 inset !important;
+    color: #FF695E !important;
+  }
+  .coderius.inverted.red.basic.buttons .button:focus,
+  .coderius.inverted.red.basic.buttons .button:focus,
+  .coderius.inverted.red.basic.button:focus {
+    -webkit-box-shadow: 0px 0px 0px 2px #ff4335 inset !important;
+            box-shadow: 0px 0px 0px 2px #ff4335 inset !important;
+    color: #FF695E !important;
+  }
+  .coderius.inverted.red.basic.buttons .active.button,
+  .coderius.inverted.red.buttons .basic.active.button,
+  .coderius.inverted.red.basic.active.button {
+    -webkit-box-shadow: 0px 0px 0px 2px #ff5144 inset !important;
+            box-shadow: 0px 0px 0px 2px #ff5144 inset !important;
+    color: #FF695E !important;
+  }
+  .coderius.inverted.red.basic.buttons .button:active,
+  .coderius.inverted.red.buttons .basic.button:active,
+  .coderius.inverted.red.basic.button:active {
+    -webkit-box-shadow: 0px 0px 0px 2px #ff392b inset !important;
+            box-shadow: 0px 0px 0px 2px #ff392b inset !important;
+    color: #FF695E !important;
+  }
+  
+  /*--- Teal ---*/
+  
+  .coderius.teal.buttons .button,
+  .coderius.teal.button {
+    background-color: #00B5AD;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+  }
+  .coderius.teal.button {
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.teal.buttons .button:hover,
+  .coderius.teal.button:hover {
+    background-color: #009c95;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.teal.buttons .button:focus,
+  .coderius.teal.button:focus {
+    background-color: #008c86;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.teal.buttons .button:active,
+  .coderius.teal.button:active {
+    background-color: #00827c;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.teal.buttons .active.button,
+  .coderius.teal.buttons .active.button:active,
+  .coderius.teal.active.button,
+  .coderius.teal.button .active.button:active {
+    background-color: #009c95;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Basic */
+  .coderius.basic.teal.buttons .button,
+  .coderius.basic.teal.button {
+    -webkit-box-shadow: 0px 0px 0px 1px #00B5AD inset !important;
+            box-shadow: 0px 0px 0px 1px #00B5AD inset !important;
+    color: #00B5AD !important;
+  }
+  .coderius.basic.teal.buttons .button:hover,
+  .coderius.basic.teal.button:hover {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #009c95 inset !important;
+            box-shadow: 0px 0px 0px 1px #009c95 inset !important;
+    color: #009c95 !important;
+  }
+  .coderius.basic.teal.buttons .button:focus,
+  .coderius.basic.teal.button:focus {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #008c86 inset !important;
+            box-shadow: 0px 0px 0px 1px #008c86 inset !important;
+    color: #009c95 !important;
+  }
+  .coderius.basic.teal.buttons .active.button,
+  .coderius.basic.teal.active.button {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #009c95 inset !important;
+            box-shadow: 0px 0px 0px 1px #009c95 inset !important;
+    color: #00827c !important;
+  }
+  .coderius.basic.teal.buttons .button:active,
+  .coderius.basic.teal.button:active {
+    -webkit-box-shadow: 0px 0px 0px 1px #00827c inset !important;
+            box-shadow: 0px 0px 0px 1px #00827c inset !important;
+    color: #00827c !important;
+  }
+  .coderius.buttons:not(.vertical) > .basic.teal.button:not(:first-child) {
+    margin-left: -1px;
+  }
+  
+  /* Inverted */
+  .coderius.inverted.teal.buttons .button,
+  .coderius.inverted.teal.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px #6DFFFF inset !important;
+            box-shadow: 0px 0px 0px 2px #6DFFFF inset !important;
+    color: #6DFFFF;
+  }
+  .coderius.inverted.teal.buttons .button:hover,
+  .coderius.inverted.teal.button:hover,
+  .coderius.inverted.teal.buttons .button:focus,
+  .coderius.inverted.teal.button:focus,
+  .coderius.inverted.teal.buttons .button.active,
+  .coderius.inverted.teal.button.active,
+  .coderius.inverted.teal.buttons .button:active,
+  .coderius.inverted.teal.button:active {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    color: rgba(0, 0, 0, 0.6);
+  }
+  .coderius.inverted.teal.buttons .button:hover,
+  .coderius.inverted.teal.button:hover {
+    background-color: #54ffff;
+  }
+  .coderius.inverted.teal.buttons .button:focus,
+  .coderius.inverted.teal.button:focus {
+    background-color: #44ffff;
+  }
+  .coderius.inverted.teal.buttons .active.button,
+  .coderius.inverted.teal.active.button {
+    background-color: #54ffff;
+  }
+  .coderius.inverted.teal.buttons .button:active,
+  .coderius.inverted.teal.button:active {
+    background-color: #3affff;
+  }
+  
+  /* Inverted Basic */
+  .coderius.inverted.teal.basic.buttons .button,
+  .coderius.inverted.teal.buttons .basic.button,
+  .coderius.inverted.teal.basic.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+            box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+    color: #FFFFFF !important;
+  }
+  .coderius.inverted.teal.basic.buttons .button:hover,
+  .coderius.inverted.teal.buttons .basic.button:hover,
+  .coderius.inverted.teal.basic.button:hover {
+    -webkit-box-shadow: 0px 0px 0px 2px #54ffff inset !important;
+            box-shadow: 0px 0px 0px 2px #54ffff inset !important;
+    color: #6DFFFF !important;
+  }
+  .coderius.inverted.teal.basic.buttons .button:focus,
+  .coderius.inverted.teal.basic.buttons .button:focus,
+  .coderius.inverted.teal.basic.button:focus {
+    -webkit-box-shadow: 0px 0px 0px 2px #44ffff inset !important;
+            box-shadow: 0px 0px 0px 2px #44ffff inset !important;
+    color: #6DFFFF !important;
+  }
+  .coderius.inverted.teal.basic.buttons .active.button,
+  .coderius.inverted.teal.buttons .basic.active.button,
+  .coderius.inverted.teal.basic.active.button {
+    -webkit-box-shadow: 0px 0px 0px 2px #54ffff inset !important;
+            box-shadow: 0px 0px 0px 2px #54ffff inset !important;
+    color: #6DFFFF !important;
+  }
+  .coderius.inverted.teal.basic.buttons .button:active,
+  .coderius.inverted.teal.buttons .basic.button:active,
+  .coderius.inverted.teal.basic.button:active {
+    -webkit-box-shadow: 0px 0px 0px 2px #3affff inset !important;
+            box-shadow: 0px 0px 0px 2px #3affff inset !important;
+    color: #6DFFFF !important;
+  }
+  
+  /*--- Olive ---*/
+  
+  .coderius.olive.buttons .button,
+  .coderius.olive.button {
+    background-color: #B5CC18;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+  }
+  .coderius.olive.button {
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.olive.buttons .button:hover,
+  .coderius.olive.button:hover {
+    background-color: #a7bd0d;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.olive.buttons .button:focus,
+  .coderius.olive.button:focus {
+    background-color: #a0b605;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.olive.buttons .button:active,
+  .coderius.olive.button:active {
+    background-color: #8d9e13;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.olive.buttons .active.button,
+  .coderius.olive.buttons .active.button:active,
+  .coderius.olive.active.button,
+  .coderius.olive.button .active.button:active {
+    background-color: #aac109;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Basic */
+  .coderius.basic.olive.buttons .button,
+  .coderius.basic.olive.button {
+    -webkit-box-shadow: 0px 0px 0px 1px #B5CC18 inset !important;
+            box-shadow: 0px 0px 0px 1px #B5CC18 inset !important;
+    color: #B5CC18 !important;
+  }
+  .coderius.basic.olive.buttons .button:hover,
+  .coderius.basic.olive.button:hover {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #a7bd0d inset !important;
+            box-shadow: 0px 0px 0px 1px #a7bd0d inset !important;
+    color: #a7bd0d !important;
+  }
+  .coderius.basic.olive.buttons .button:focus,
+  .coderius.basic.olive.button:focus {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #a0b605 inset !important;
+            box-shadow: 0px 0px 0px 1px #a0b605 inset !important;
+    color: #a7bd0d !important;
+  }
+  .coderius.basic.olive.buttons .active.button,
+  .coderius.basic.olive.active.button {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #aac109 inset !important;
+            box-shadow: 0px 0px 0px 1px #aac109 inset !important;
+    color: #8d9e13 !important;
+  }
+  .coderius.basic.olive.buttons .button:active,
+  .coderius.basic.olive.button:active {
+    -webkit-box-shadow: 0px 0px 0px 1px #8d9e13 inset !important;
+            box-shadow: 0px 0px 0px 1px #8d9e13 inset !important;
+    color: #8d9e13 !important;
+  }
+  .coderius.buttons:not(.vertical) > .basic.olive.button:not(:first-child) {
+    margin-left: -1px;
+  }
+  
+  /* Inverted */
+  .coderius.inverted.olive.buttons .button,
+  .coderius.inverted.olive.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px #D9E778 inset !important;
+            box-shadow: 0px 0px 0px 2px #D9E778 inset !important;
+    color: #D9E778;
+  }
+  .coderius.inverted.olive.buttons .button:hover,
+  .coderius.inverted.olive.button:hover,
+  .coderius.inverted.olive.buttons .button:focus,
+  .coderius.inverted.olive.button:focus,
+  .coderius.inverted.olive.buttons .button.active,
+  .coderius.inverted.olive.button.active,
+  .coderius.inverted.olive.buttons .button:active,
+  .coderius.inverted.olive.button:active {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    color: rgba(0, 0, 0, 0.6);
+  }
+  .coderius.inverted.olive.buttons .button:hover,
+  .coderius.inverted.olive.button:hover {
+    background-color: #d8ea5c;
+  }
+  .coderius.inverted.olive.buttons .button:focus,
+  .coderius.inverted.olive.button:focus {
+    background-color: #daef47;
+  }
+  .coderius.inverted.olive.buttons .active.button,
+  .coderius.inverted.olive.active.button {
+    background-color: #daed59;
+  }
+  .coderius.inverted.olive.buttons .button:active,
+  .coderius.inverted.olive.button:active {
+    background-color: #cddf4d;
+  }
+  
+  /* Inverted Basic */
+  .coderius.inverted.olive.basic.buttons .button,
+  .coderius.inverted.olive.buttons .basic.button,
+  .coderius.inverted.olive.basic.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+            box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+    color: #FFFFFF !important;
+  }
+  .coderius.inverted.olive.basic.buttons .button:hover,
+  .coderius.inverted.olive.buttons .basic.button:hover,
+  .coderius.inverted.olive.basic.button:hover {
+    -webkit-box-shadow: 0px 0px 0px 2px #d8ea5c inset !important;
+            box-shadow: 0px 0px 0px 2px #d8ea5c inset !important;
+    color: #D9E778 !important;
+  }
+  .coderius.inverted.olive.basic.buttons .button:focus,
+  .coderius.inverted.olive.basic.buttons .button:focus,
+  .coderius.inverted.olive.basic.button:focus {
+    -webkit-box-shadow: 0px 0px 0px 2px #daef47 inset !important;
+            box-shadow: 0px 0px 0px 2px #daef47 inset !important;
+    color: #D9E778 !important;
+  }
+  .coderius.inverted.olive.basic.buttons .active.button,
+  .coderius.inverted.olive.buttons .basic.active.button,
+  .coderius.inverted.olive.basic.active.button {
+    -webkit-box-shadow: 0px 0px 0px 2px #daed59 inset !important;
+            box-shadow: 0px 0px 0px 2px #daed59 inset !important;
+    color: #D9E778 !important;
+  }
+  .coderius.inverted.olive.basic.buttons .button:active,
+  .coderius.inverted.olive.buttons .basic.button:active,
+  .coderius.inverted.olive.basic.button:active {
+    -webkit-box-shadow: 0px 0px 0px 2px #cddf4d inset !important;
+            box-shadow: 0px 0px 0px 2px #cddf4d inset !important;
+    color: #D9E778 !important;
+  }
+  
+  /*--- Yellow ---*/
+  
+  .coderius.yellow.buttons .button,
+  .coderius.yellow.button {
+    background-color: #FBBD08;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+  }
+  .coderius.yellow.button {
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.yellow.buttons .button:hover,
+  .coderius.yellow.button:hover {
+    background-color: #eaae00;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.yellow.buttons .button:focus,
+  .coderius.yellow.button:focus {
+    background-color: #daa300;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.yellow.buttons .button:active,
+  .coderius.yellow.button:active {
+    background-color: #cd9903;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.yellow.buttons .active.button,
+  .coderius.yellow.buttons .active.button:active,
+  .coderius.yellow.active.button,
+  .coderius.yellow.button .active.button:active {
+    background-color: #eaae00;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Basic */
+  .coderius.basic.yellow.buttons .button,
+  .coderius.basic.yellow.button {
+    -webkit-box-shadow: 0px 0px 0px 1px #FBBD08 inset !important;
+            box-shadow: 0px 0px 0px 1px #FBBD08 inset !important;
+    color: #FBBD08 !important;
+  }
+  .coderius.basic.yellow.buttons .button:hover,
+  .coderius.basic.yellow.button:hover {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #eaae00 inset !important;
+            box-shadow: 0px 0px 0px 1px #eaae00 inset !important;
+    color: #eaae00 !important;
+  }
+  .coderius.basic.yellow.buttons .button:focus,
+  .coderius.basic.yellow.button:focus {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #daa300 inset !important;
+            box-shadow: 0px 0px 0px 1px #daa300 inset !important;
+    color: #eaae00 !important;
+  }
+  .coderius.basic.yellow.buttons .active.button,
+  .coderius.basic.yellow.active.button {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #eaae00 inset !important;
+            box-shadow: 0px 0px 0px 1px #eaae00 inset !important;
+    color: #cd9903 !important;
+  }
+  .coderius.basic.yellow.buttons .button:active,
+  .coderius.basic.yellow.button:active {
+    -webkit-box-shadow: 0px 0px 0px 1px #cd9903 inset !important;
+            box-shadow: 0px 0px 0px 1px #cd9903 inset !important;
+    color: #cd9903 !important;
+  }
+  .coderius.buttons:not(.vertical) > .basic.yellow.button:not(:first-child) {
+    margin-left: -1px;
+  }
+  
+  /* Inverted */
+  .coderius.inverted.yellow.buttons .button,
+  .coderius.inverted.yellow.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px #FFE21F inset !important;
+            box-shadow: 0px 0px 0px 2px #FFE21F inset !important;
+    color: #FFE21F;
+  }
+  .coderius.inverted.yellow.buttons .button:hover,
+  .coderius.inverted.yellow.button:hover,
+  .coderius.inverted.yellow.buttons .button:focus,
+  .coderius.inverted.yellow.button:focus,
+  .coderius.inverted.yellow.buttons .button.active,
+  .coderius.inverted.yellow.button.active,
+  .coderius.inverted.yellow.buttons .button:active,
+  .coderius.inverted.yellow.button:active {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    color: rgba(0, 0, 0, 0.6);
+  }
+  .coderius.inverted.yellow.buttons .button:hover,
+  .coderius.inverted.yellow.button:hover {
+    background-color: #ffdf05;
+  }
+  .coderius.inverted.yellow.buttons .button:focus,
+  .coderius.inverted.yellow.button:focus {
+    background-color: #f5d500;
+  }
+  .coderius.inverted.yellow.buttons .active.button,
+  .coderius.inverted.yellow.active.button {
+    background-color: #ffdf05;
+  }
+  .coderius.inverted.yellow.buttons .button:active,
+  .coderius.inverted.yellow.button:active {
+    background-color: #ebcd00;
+  }
+  
+  /* Inverted Basic */
+  .coderius.inverted.yellow.basic.buttons .button,
+  .coderius.inverted.yellow.buttons .basic.button,
+  .coderius.inverted.yellow.basic.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+            box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+    color: #FFFFFF !important;
+  }
+  .coderius.inverted.yellow.basic.buttons .button:hover,
+  .coderius.inverted.yellow.buttons .basic.button:hover,
+  .coderius.inverted.yellow.basic.button:hover {
+    -webkit-box-shadow: 0px 0px 0px 2px #ffdf05 inset !important;
+            box-shadow: 0px 0px 0px 2px #ffdf05 inset !important;
+    color: #FFE21F !important;
+  }
+  .coderius.inverted.yellow.basic.buttons .button:focus,
+  .coderius.inverted.yellow.basic.buttons .button:focus,
+  .coderius.inverted.yellow.basic.button:focus {
+    -webkit-box-shadow: 0px 0px 0px 2px #f5d500 inset !important;
+            box-shadow: 0px 0px 0px 2px #f5d500 inset !important;
+    color: #FFE21F !important;
+  }
+  .coderius.inverted.yellow.basic.buttons .active.button,
+  .coderius.inverted.yellow.buttons .basic.active.button,
+  .coderius.inverted.yellow.basic.active.button {
+    -webkit-box-shadow: 0px 0px 0px 2px #ffdf05 inset !important;
+            box-shadow: 0px 0px 0px 2px #ffdf05 inset !important;
+    color: #FFE21F !important;
+  }
+  .coderius.inverted.yellow.basic.buttons .button:active,
+  .coderius.inverted.yellow.buttons .basic.button:active,
+  .coderius.inverted.yellow.basic.button:active {
+    -webkit-box-shadow: 0px 0px 0px 2px #ebcd00 inset !important;
+            box-shadow: 0px 0px 0px 2px #ebcd00 inset !important;
+    color: #FFE21F !important;
+  }
+  
+  /*-------------------
+         Primary
+  --------------------*/
+  
+  
+  /*--- Standard ---*/
+  
+  .coderius.primary.buttons .button,
+  .coderius.primary.button {
+    background-color: #2185D0;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+  }
+  .coderius.primary.button {
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.primary.buttons .button:hover,
+  .coderius.primary.button:hover {
+    background-color: #1678c2;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.primary.buttons .button:focus,
+  .coderius.primary.button:focus {
+    background-color: #0d71bb;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.primary.buttons .button:active,
+  .coderius.primary.button:active {
+    background-color: #1a69a4;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.primary.buttons .active.button,
+  .coderius.primary.buttons .active.button:active,
+  .coderius.primary.active.button,
+  .coderius.primary.button .active.button:active {
+    background-color: #1279c6;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Basic */
+  .coderius.basic.primary.buttons .button,
+  .coderius.basic.primary.button {
+    -webkit-box-shadow: 0px 0px 0px 1px #2185D0 inset !important;
+            box-shadow: 0px 0px 0px 1px #2185D0 inset !important;
+    color: #2185D0 !important;
+  }
+  .coderius.basic.primary.buttons .button:hover,
+  .coderius.basic.primary.button:hover {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #1678c2 inset !important;
+            box-shadow: 0px 0px 0px 1px #1678c2 inset !important;
+    color: #1678c2 !important;
+  }
+  .coderius.basic.primary.buttons .button:focus,
+  .coderius.basic.primary.button:focus {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #0d71bb inset !important;
+            box-shadow: 0px 0px 0px 1px #0d71bb inset !important;
+    color: #1678c2 !important;
+  }
+  .coderius.basic.primary.buttons .active.button,
+  .coderius.basic.primary.active.button {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #1279c6 inset !important;
+            box-shadow: 0px 0px 0px 1px #1279c6 inset !important;
+    color: #1a69a4 !important;
+  }
+  .coderius.basic.primary.buttons .button:active,
+  .coderius.basic.primary.button:active {
+    -webkit-box-shadow: 0px 0px 0px 1px #1a69a4 inset !important;
+            box-shadow: 0px 0px 0px 1px #1a69a4 inset !important;
+    color: #1a69a4 !important;
+  }
+  .coderius.buttons:not(.vertical) > .basic.primary.button:not(:first-child) {
+    margin-left: -1px;
+  }
+  
+  /* Inverted */
+  .coderius.inverted.primary.buttons .button,
+  .coderius.inverted.primary.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px #54C8FF inset !important;
+            box-shadow: 0px 0px 0px 2px #54C8FF inset !important;
+    color: #54C8FF;
+  }
+  .coderius.inverted.primary.buttons .button:hover,
+  .coderius.inverted.primary.button:hover,
+  .coderius.inverted.primary.buttons .button:focus,
+  .coderius.inverted.primary.button:focus,
+  .coderius.inverted.primary.buttons .button.active,
+  .coderius.inverted.primary.button.active,
+  .coderius.inverted.primary.buttons .button:active,
+  .coderius.inverted.primary.button:active {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    color: #FFFFFF;
+  }
+  .coderius.inverted.primary.buttons .button:hover,
+  .coderius.inverted.primary.button:hover {
+    background-color: #3ac0ff;
+  }
+  .coderius.inverted.primary.buttons .button:focus,
+  .coderius.inverted.primary.button:focus {
+    background-color: #2bbbff;
+  }
+  .coderius.inverted.primary.buttons .active.button,
+  .coderius.inverted.primary.active.button {
+    background-color: #3ac0ff;
+  }
+  .coderius.inverted.primary.buttons .button:active,
+  .coderius.inverted.primary.button:active {
+    background-color: #21b8ff;
+  }
+  
+  /* Inverted Basic */
+  .coderius.inverted.primary.basic.buttons .button,
+  .coderius.inverted.primary.buttons .basic.button,
+  .coderius.inverted.primary.basic.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+            box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+    color: #FFFFFF !important;
+  }
+  .coderius.inverted.primary.basic.buttons .button:hover,
+  .coderius.inverted.primary.buttons .basic.button:hover,
+  .coderius.inverted.primary.basic.button:hover {
+    -webkit-box-shadow: 0px 0px 0px 2px #3ac0ff inset !important;
+            box-shadow: 0px 0px 0px 2px #3ac0ff inset !important;
+    color: #54C8FF !important;
+  }
+  .coderius.inverted.primary.basic.buttons .button:focus,
+  .coderius.inverted.primary.basic.buttons .button:focus,
+  .coderius.inverted.primary.basic.button:focus {
+    -webkit-box-shadow: 0px 0px 0px 2px #2bbbff inset !important;
+            box-shadow: 0px 0px 0px 2px #2bbbff inset !important;
+    color: #54C8FF !important;
+  }
+  .coderius.inverted.primary.basic.buttons .active.button,
+  .coderius.inverted.primary.buttons .basic.active.button,
+  .coderius.inverted.primary.basic.active.button {
+    -webkit-box-shadow: 0px 0px 0px 2px #3ac0ff inset !important;
+            box-shadow: 0px 0px 0px 2px #3ac0ff inset !important;
+    color: #54C8FF !important;
+  }
+  .coderius.inverted.primary.basic.buttons .button:active,
+  .coderius.inverted.primary.buttons .basic.button:active,
+  .coderius.inverted.primary.basic.button:active {
+    -webkit-box-shadow: 0px 0px 0px 2px #21b8ff inset !important;
+            box-shadow: 0px 0px 0px 2px #21b8ff inset !important;
+    color: #54C8FF !important;
+  }
+  
+  /*-------------------
+        Secondary
+  --------------------*/
+  
+  
+  /* Standard */
+  .coderius.secondary.buttons .button,
+  .coderius.secondary.button {
+    background-color: #1B1C1D;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+  }
+  .coderius.secondary.button {
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.secondary.buttons .button:hover,
+  .coderius.secondary.button:hover {
+    background-color: #27292a;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.secondary.buttons .button:focus,
+  .coderius.secondary.button:focus {
+    background-color: #2e3032;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.secondary.buttons .button:active,
+  .coderius.secondary.button:active {
+    background-color: #343637;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.secondary.buttons .active.button,
+  .coderius.secondary.buttons .active.button:active,
+  .coderius.secondary.active.button,
+  .coderius.secondary.button .active.button:active {
+    background-color: #27292a;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Basic */
+  .coderius.basic.secondary.buttons .button,
+  .coderius.basic.secondary.button {
+    -webkit-box-shadow: 0px 0px 0px 1px #1B1C1D inset !important;
+            box-shadow: 0px 0px 0px 1px #1B1C1D inset !important;
+    color: #1B1C1D !important;
+  }
+  .coderius.basic.secondary.buttons .button:hover,
+  .coderius.basic.secondary.button:hover {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #27292a inset !important;
+            box-shadow: 0px 0px 0px 1px #27292a inset !important;
+    color: #27292a !important;
+  }
+  .coderius.basic.secondary.buttons .button:focus,
+  .coderius.basic.secondary.button:focus {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #2e3032 inset !important;
+            box-shadow: 0px 0px 0px 1px #2e3032 inset !important;
+    color: #27292a !important;
+  }
+  .coderius.basic.secondary.buttons .active.button,
+  .coderius.basic.secondary.active.button {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #27292a inset !important;
+            box-shadow: 0px 0px 0px 1px #27292a inset !important;
+    color: #343637 !important;
+  }
+  .coderius.basic.secondary.buttons .button:active,
+  .coderius.basic.secondary.button:active {
+    -webkit-box-shadow: 0px 0px 0px 1px #343637 inset !important;
+            box-shadow: 0px 0px 0px 1px #343637 inset !important;
+    color: #343637 !important;
+  }
+  .coderius.buttons:not(.vertical) > .basic.primary.button:not(:first-child) {
+    margin-left: -1px;
+  }
+  
+  /* Inverted */
+  .coderius.inverted.secondary.buttons .button,
+  .coderius.inverted.secondary.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px #545454 inset !important;
+            box-shadow: 0px 0px 0px 2px #545454 inset !important;
+    color: #545454;
+  }
+  .coderius.inverted.secondary.buttons .button:hover,
+  .coderius.inverted.secondary.button:hover,
+  .coderius.inverted.secondary.buttons .button:focus,
+  .coderius.inverted.secondary.button:focus,
+  .coderius.inverted.secondary.buttons .button.active,
+  .coderius.inverted.secondary.button.active,
+  .coderius.inverted.secondary.buttons .button:active,
+  .coderius.inverted.secondary.button:active {
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    color: #FFFFFF;
+  }
+  .coderius.inverted.secondary.buttons .button:hover,
+  .coderius.inverted.secondary.button:hover {
+    background-color: #616161;
+  }
+  .coderius.inverted.secondary.buttons .button:focus,
+  .coderius.inverted.secondary.button:focus {
+    background-color: #686868;
+  }
+  .coderius.inverted.secondary.buttons .active.button,
+  .coderius.inverted.secondary.active.button {
+    background-color: #616161;
+  }
+  .coderius.inverted.secondary.buttons .button:active,
+  .coderius.inverted.secondary.button:active {
+    background-color: #6e6e6e;
+  }
+  
+  /* Inverted Basic */
+  .coderius.inverted.secondary.basic.buttons .button,
+  .coderius.inverted.secondary.buttons .basic.button,
+  .coderius.inverted.secondary.basic.button {
+    background-color: transparent;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+            box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+    color: #FFFFFF !important;
+  }
+  .coderius.inverted.secondary.basic.buttons .button:hover,
+  .coderius.inverted.secondary.buttons .basic.button:hover,
+  .coderius.inverted.secondary.basic.button:hover {
+    -webkit-box-shadow: 0px 0px 0px 2px #616161 inset !important;
+            box-shadow: 0px 0px 0px 2px #616161 inset !important;
+    color: #545454 !important;
+  }
+  .coderius.inverted.secondary.basic.buttons .button:focus,
+  .coderius.inverted.secondary.basic.buttons .button:focus,
+  .coderius.inverted.secondary.basic.button:focus {
+    -webkit-box-shadow: 0px 0px 0px 2px #686868 inset !important;
+            box-shadow: 0px 0px 0px 2px #686868 inset !important;
+    color: #545454 !important;
+  }
+  .coderius.inverted.secondary.basic.buttons .active.button,
+  .coderius.inverted.secondary.buttons .basic.active.button,
+  .coderius.inverted.secondary.basic.active.button {
+    -webkit-box-shadow: 0px 0px 0px 2px #616161 inset !important;
+            box-shadow: 0px 0px 0px 2px #616161 inset !important;
+    color: #545454 !important;
+  }
+  .coderius.inverted.secondary.basic.buttons .button:active,
+  .coderius.inverted.secondary.buttons .basic.button:active,
+  .coderius.inverted.secondary.basic.button:active {
+    -webkit-box-shadow: 0px 0px 0px 2px #6e6e6e inset !important;
+            box-shadow: 0px 0px 0px 2px #6e6e6e inset !important;
+    color: #545454 !important;
+  }
+  
+  /*---------------
+      Positive
+  ----------------*/
+  
+  
+  /* Standard */
+  .coderius.positive.buttons .button,
+  .coderius.positive.button {
+    background-color: #21BA45;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+  }
+  .coderius.positive.button {
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.positive.buttons .button:hover,
+  .coderius.positive.button:hover {
+    background-color: #16ab39;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.positive.buttons .button:focus,
+  .coderius.positive.button:focus {
+    background-color: #0ea432;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.positive.buttons .button:active,
+  .coderius.positive.button:active {
+    background-color: #198f35;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.positive.buttons .active.button,
+  .coderius.positive.buttons .active.button:active,
+  .coderius.positive.active.button,
+  .coderius.positive.button .active.button:active {
+    background-color: #13ae38;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Basic */
+  .coderius.basic.positive.buttons .button,
+  .coderius.basic.positive.button {
+    -webkit-box-shadow: 0px 0px 0px 1px #21BA45 inset !important;
+            box-shadow: 0px 0px 0px 1px #21BA45 inset !important;
+    color: #21BA45 !important;
+  }
+  .coderius.basic.positive.buttons .button:hover,
+  .coderius.basic.positive.button:hover {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #16ab39 inset !important;
+            box-shadow: 0px 0px 0px 1px #16ab39 inset !important;
+    color: #16ab39 !important;
+  }
+  .coderius.basic.positive.buttons .button:focus,
+  .coderius.basic.positive.button:focus {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #0ea432 inset !important;
+            box-shadow: 0px 0px 0px 1px #0ea432 inset !important;
+    color: #16ab39 !important;
+  }
+  .coderius.basic.positive.buttons .active.button,
+  .coderius.basic.positive.active.button {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #13ae38 inset !important;
+            box-shadow: 0px 0px 0px 1px #13ae38 inset !important;
+    color: #198f35 !important;
+  }
+  .coderius.basic.positive.buttons .button:active,
+  .coderius.basic.positive.button:active {
+    -webkit-box-shadow: 0px 0px 0px 1px #198f35 inset !important;
+            box-shadow: 0px 0px 0px 1px #198f35 inset !important;
+    color: #198f35 !important;
+  }
+  .coderius.buttons:not(.vertical) > .basic.primary.button:not(:first-child) {
+    margin-left: -1px;
+  }
+  
+  /*---------------
+       Negative
+  ----------------*/
+  
+  
+  /* Standard */
+  .coderius.negative.buttons .button,
+  .coderius.negative.button {
+    background-color: #DB2828;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+  }
+  .coderius.negative.button {
+    -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.negative.buttons .button:hover,
+  .coderius.negative.button:hover {
+    background-color: #d01919;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.negative.buttons .button:focus,
+  .coderius.negative.button:focus {
+    background-color: #ca1010;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.negative.buttons .button:active,
+  .coderius.negative.button:active {
+    background-color: #b21e1e;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .coderius.negative.buttons .active.button,
+  .coderius.negative.buttons .active.button:active,
+  .coderius.negative.active.button,
+  .coderius.negative.button .active.button:active {
+    background-color: #d41515;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  
+  /* Basic */
+  .coderius.basic.negative.buttons .button,
+  .coderius.basic.negative.button {
+    -webkit-box-shadow: 0px 0px 0px 1px #DB2828 inset !important;
+            box-shadow: 0px 0px 0px 1px #DB2828 inset !important;
+    color: #DB2828 !important;
+  }
+  .coderius.basic.negative.buttons .button:hover,
+  .coderius.basic.negative.button:hover {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #d01919 inset !important;
+            box-shadow: 0px 0px 0px 1px #d01919 inset !important;
+    color: #d01919 !important;
+  }
+  .coderius.basic.negative.buttons .button:focus,
+  .coderius.basic.negative.button:focus {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #ca1010 inset !important;
+            box-shadow: 0px 0px 0px 1px #ca1010 inset !important;
+    color: #d01919 !important;
+  }
+  .coderius.basic.negative.buttons .active.button,
+  .coderius.basic.negative.active.button {
+    background: transparent !important;
+    -webkit-box-shadow: 0px 0px 0px 1px #d41515 inset !important;
+            box-shadow: 0px 0px 0px 1px #d41515 inset !important;
+    color: #b21e1e !important;
+  }
+  .coderius.basic.negative.buttons .button:active,
+  .coderius.basic.negative.button:active {
+    -webkit-box-shadow: 0px 0px 0px 1px #b21e1e inset !important;
+            box-shadow: 0px 0px 0px 1px #b21e1e inset !important;
+    color: #b21e1e !important;
+  }
+  .coderius.buttons:not(.vertical) > .basic.primary.button:not(:first-child) {
+    margin-left: -1px;
+  }
+  
+  
+  /*******************************
+              Groups
+  *******************************/
+  
+  .coderius.buttons {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    font-size: 0em;
+    vertical-align: baseline;
+    margin: 0em 0.25em 0em 0em;
+  }
+  .coderius.buttons:not(.basic):not(.inverted) {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  
+  /* Clearfix */
+  .coderius.buttons:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+  
+  /* Standard Group */
+  .coderius.buttons .button {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
+    margin: 0em;
+    border-radius: 0em;
+    margin: 0px 0px 0px 0px;
+  }
+  .coderius.buttons > .coderius.button:not(.basic):not(.inverted),
+  .coderius.buttons:not(.basic):not(.inverted) > .button {
+    -webkit-box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+            box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  }
+  .coderius.buttons .button:first-child {
+    border-left: none;
+    margin-left: 0em;
+    border-top-left-radius: 0.28571429rem;
+    border-bottom-left-radius: 0.28571429rem;
+  }
+  .coderius.buttons .button:last-child {
+    border-top-right-radius: 0.28571429rem;
+    border-bottom-right-radius: 0.28571429rem;
+  }
+  
+  /* Vertical  Style */
+  .coderius.vertical.buttons {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .coderius.vertical.buttons .button {
+    display: block;
+    float: none;
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border-radius: 0em;
+  }
+  .coderius.vertical.buttons .button:first-child {
+    border-top-left-radius: 0.28571429rem;
+    border-top-right-radius: 0.28571429rem;
+  }
+  .coderius.vertical.buttons .button:last-child {
+    margin-bottom: 0px;
+    border-bottom-left-radius: 0.28571429rem;
+    border-bottom-right-radius: 0.28571429rem;
+  }
+  .coderius.vertical.buttons .button:only-child {
+    border-radius: 0.28571429rem;
+  }
+  
+  
+  /*******************************
+           Theme Overrides
+  *******************************/
+  
+  
+  
+  /*******************************
+           Site Overrides
+  *******************************/

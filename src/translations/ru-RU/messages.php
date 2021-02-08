@@ -22,5 +22,6 @@ return [
     'Commentor First Name' => 'Имя комментатора',
     'Comment Text' => 'Текст комментария',
     'Oops, something went wrong. Please try again later.' => 'Ой, что-то пошло не так. Пожалуйста, повторите попытку еще раз.',
-    'Captcha' => 'Капча'
+    'Captcha' => 'Капча',
+    'Write string from captcha image ...' => 'Напишите строку из картинки капчи ...'
 ];

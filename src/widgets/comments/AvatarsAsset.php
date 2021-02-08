@@ -1,6 +1,6 @@
 <?php
 
-namespace coderius\comments\widgets;
+namespace coderius\comments\widgets\comments;
 
 use yii\web\AssetBundle;
 

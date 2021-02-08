@@ -1,9 +1,22 @@
 <?php
+use coderius\comments\widgets\captcha\CaptchaWidget;
 use dosamigos\tinymce\TinyMce;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\JsExpression;
-use yii\captcha\Captcha;
+
+$js = new JsExpression('
+
+
+
+');
+
+$this->registerJs(
+  $js,
+  \yii\web\View::POS_READY,
+  'verifyCode_reload'
+);
+
 ?>
 
 <?= Html::beginForm($action = Url::to(['/comments/default/create-comment']), $method = 'post', $options = ['class' => 'coderius form reply']); ?>
@@ -12,19 +25,19 @@ use yii\captcha\Captcha;
   <?= Html::hiddenInput('encryptedData', $encryptedData); ?>
 <!-- input name -->
   <?= Html::beginTag('div', $options = ['class' => 'field']); ?>
-      <?= Html::label($commentsInputNameLabel . ' *'); ?>
+      <?= Html::label($commentsInputNameLabel.' *'); ?>
       <?= Html::input('text', 'commentorFirstName', null, ['placeholder' => $commentsInputNamePlaceholder]); ?>
       <?= Html::beginTag('div', $options = ['class' => 'field-validation-error-wrapper']); ?><?= Html::endTag('div'); ?>
   <?= Html::endTag('div'); ?>
 <!-- textarea -->
   <?= Html::beginTag('div', $options = ['class' => 'field']); ?>
-      <?= Html::label($commentsTextareaLabel . ' *'); ?>
+      <?= Html::label($commentsTextareaLabel.' *'); ?>
       <?php //echo Html::textarea('commentText', '', ['placeholder' => $commentsTextareaPlaceholder]);?>
       <?= TinyMce::widget([
             'name' => 'commentText',
             'id' => 'tinyeditor',
-            'options' => ['rows' => 6],
-            'language' => \Yii::$app->language ? preg_replace('/-[\w]+/s', '', Yii::$app->language) : null,//ru-RU to ru
+            'options' => ['rows' => 6, 'placeholder' => $commentsTextareaPlaceholder],
+            'language' => \Yii::$app->language ? preg_replace('/-[\w]+/s', '', Yii::$app->language) : null, //ru-RU to ru
             'clientOptions' => [
               'branding' => false,
               'selector' => 'textarea',
@@ -61,13 +74,34 @@ use yii\captcha\Captcha;
   <!-- Captcha -->
   <?= Html::beginTag('div', $options = ['class' => 'field']); ?>
     <?= Html::label("{$commentsCaptchaLabel} *"); ?>
-    <?= Html::beginTag('div', $options = ['style' => 'display: flex;']); ?>
-      <?= Captcha::widget([
+    <?= Html::beginTag('div', $options = ['style' => 'display: flex;align-items: center;']); ?>
+    
+    <!-- Captcha reload button-->
+    <p class="verifyCode_reload" style="margin:0">
+      <i class="icon sync"></i>
+    </p>
+    
+      <?= CaptchaWidget::widget([
               'name' => 'verifyCode',
               'captchaAction' => 'comments/default/captcha',
+              'imageOptions' => [
+                'class' => 'captchaImage',
+              ],
               'options' => [
-                'style' => 'margin-left: 14px'
-              ]
+                'style' => 'margin-left: 14px',
+                'placeholder' => $commentsCaptchaPlaceholder,
+              ],
+              'clientOptions' => [
+                'elemSelectorRefresh' => '.verifyCode_reload',
+                'beforeRefresh' => new JsExpression('
+                  function($img, $elem){$elem.children("i").toggleClass("loading");}
+                
+                '),
+                'afterRefreshSuccess' => new JsExpression('
+                  function($img, $elem){$elem.children("i").toggleClass("loading");}
+                
+                '),
+              ],
           ]);
       ?>
     <?= Html::endTag('div'); ?> 
@@ -96,3 +130,7 @@ use yii\captcha\Captcha;
       <i class="icon edit"></i> <?= $commentsFormButtonTitle; ?>
     </div>
 </form> -->
+
+<?php
+
+?>

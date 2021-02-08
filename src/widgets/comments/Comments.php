@@ -1,6 +1,6 @@
 <?php
 
-namespace coderius\comments\widgets;
+namespace coderius\comments\widgets\comments;
 
 use coderius\comments\traits\ModuleTrait;
 use Yii;
@@ -30,6 +30,7 @@ class Comments extends Widget
     public $commentsCaptchaLabel = 'Captcha';
     public $commentsInputNamePlaceholder = 'Write your First Name';
     public $commentsTextareaPlaceholder = 'Write your comment ...';
+    public $commentsCaptchaPlaceholder = 'Write string from captcha image ...';
 
     public $clientOptions = [];
 
@@ -72,6 +73,7 @@ class Comments extends Widget
             'commentsInputNameLabel' => Yii::t('coderius.comments.messages', $this->commentsInputNameLabel),
             'commentsTextareaLabel' => Yii::t('coderius.comments.messages', $this->commentsTextareaLabel),
             'commentsCaptchaLabel' => Yii::t('coderius.comments.messages', $this->commentsCaptchaLabel),
+            'commentsCaptchaPlaceholder' => Yii::t('coderius.comments.messages', $this->commentsCaptchaPlaceholder),
             'commentsInputNamePlaceholder' => Yii::t('coderius.comments.messages', $this->commentsInputNamePlaceholder),
             'commentsTextareaPlaceholder' => Yii::t('coderius.comments.messages', $this->commentsTextareaPlaceholder),
             'wrapperId' => $this->wrapperId,
