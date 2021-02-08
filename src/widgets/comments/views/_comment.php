@@ -7,7 +7,7 @@ use coderius\comments\components\services\CommentService;
 // var_dump($defaultAvatar);die;
 
 ?>
-<div class="comment" data-comment-id="<?= $comment->id; ?>">
+<div class="comment" data-comment-id="<?= $comment->id; ?>" data-comment-level="<?= $comment->level; ?>">
 
     <a class="avatar">
         <!-- <img src="https://semantic-ui.com/images/avatar/small/matt.jpg"> -->

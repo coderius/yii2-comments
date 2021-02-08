@@ -20,6 +20,7 @@ class CommentFormModel extends Model{
     public $commentText;
     public $materialId;
     public $parentId;
+    public $level;
     public $introducedAvatar;
     public $encryptedData;
     public $verifyCode;
@@ -34,6 +35,8 @@ class CommentFormModel extends Model{
              [['commentorFirstName'], 'string', 'max' => 255],
              [['commentText'], 'string', 'max' => 50000],
              ['verifyCode', 'captcha', 'captchaAction' => 'comments/default/captcha'],
+             ['level', 'default', 'value' => 0],
+             ['level', 'integer'],
              [['materialId', 'parentId', 'introducedAvatar', 'encryptedData'], 'safe']
          ];
      }
@@ -41,8 +44,8 @@ class CommentFormModel extends Model{
     public function scenarios()
     {
         $scenarios = parent::scenarios();
-        $scenarios[self::SCENARIO_CREATE] = ['commentorFirstName', 'commentText', 'materialId', 'parentId', 'introducedAvatar', 'encryptedData', 'verifyCode'];
-        $scenarios[self::SCENARIO_UPDATE] = ['commentorFirstName', 'commentText', 'materialId', 'parentId', 'encryptedData', 'verifyCode'];
+        $scenarios[self::SCENARIO_CREATE] = ['commentorFirstName', 'commentText', 'materialId', 'parentId', 'level', 'introducedAvatar', 'encryptedData', 'verifyCode'];
+        $scenarios[self::SCENARIO_UPDATE] = ['commentorFirstName', 'commentText', 'materialId', 'parentId', 'level', 'encryptedData', 'verifyCode'];
 
         return $scenarios;
     }

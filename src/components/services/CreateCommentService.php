@@ -40,7 +40,7 @@ class CreateCommentService extends BaseObject
             'materialId' => $this->getDecryptedData($formModel->encryptedData)['materialId'],
             'content' => $formModel->commentText,
             'parentId' => $formModel->parentId,
-            'level' => 0, // add if reply
+            'level' => $formModel->level, // add if reply
             'status' => CommentEnum::STATUS_ACTIVE,
             'ipStr' => UserDetectService::getUserIpString(),
             'introducedName' => $formModel->commentorFirstName,

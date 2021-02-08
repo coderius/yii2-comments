@@ -22,6 +22,7 @@ $this->registerJs(
 <?= Html::beginForm($action = Url::to(['/comments/default/create-comment']), $method = 'post', $options = ['class' => 'coderius form reply']); ?>
 <!-- hidden -->
   <?= Html::hiddenInput('parentId'); ?>
+  <?= Html::hiddenInput('level'); ?>
   <?= Html::hiddenInput('encryptedData', $encryptedData); ?>
 <!-- input name -->
   <?= Html::beginTag('div', $options = ['class' => 'field']); ?>

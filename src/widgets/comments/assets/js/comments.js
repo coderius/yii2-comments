@@ -19,7 +19,8 @@
             emptyLikeClass: 'outline' //style to not clicked like by current user
         },
         formSelectors: {
-            hiddenInputParentId: 'input:hidden[name=parentId]'
+            hiddenInputParentId: 'input:hidden[name=parentId]',
+            hiddenInputCommentLevel: 'input:hidden[name=level]',
         },
     };
 
@@ -219,14 +220,17 @@
             $divActions = $(this).parent(),
             commentBlock = $(this).closest(pluginSettings.commentSelectors.commentBlockClass),
             dataCommentId = commentBlock.data("comment-id"),
-            $input = $form.find(pluginSettings.formSelectors.hiddenInputParentId);
+            dataCommentLevel = commentBlock.data("comment-level"),
+            $hiddenInputParentId = $form.find(pluginSettings.formSelectors.hiddenInputParentId),
+            $hiddenInputCommentLevel = $form.find(pluginSettings.formSelectors.hiddenInputCommentLevel);
             
             //If editor is moved to some next dom element, then needed reinit plugin
             var settingsTinymce = tinymce.activeEditor.settings;
             tinymce.remove();
             $form.insertAfter($divActions);
             tinymce.init(settingsTinymce);
-            $input.val(dataCommentId);//set parent comment id to hidden input
+            $hiddenInputParentId.val(dataCommentId);//set parent comment id to hidden input
+            $hiddenInputCommentLevel.val(dataCommentLevel+1);//set level to hidden input
     }
 
     function likeComment(e){
